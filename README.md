@@ -46,7 +46,7 @@ The following actions occur at runtime as listed below: Class Loader -> Byte Cod
 
 ### **Java Virtual Machine (JVM)** 
 
-JVM is responsible for executing the Java program. The Java program run using JRE or JDK goes into JVM and JVM is responsible for executing the java program line by line, hence it is also known as an interpreter, but it also utilizes a Just-In-Time (JIT) compiler for performance optimization.
+JVM is responsible for executing the Java program. The Java program run using JRE or JDK goes into JVM and JVM is responsible for executing the java program line by line, hence it is also known as an interpreter, but it also utilizes a Just-In-Time (JIT) compiler for performance optimization. JVM is a very important part of both JDK and JRE because it is contained or inbuilt in both.
 
 - Executes Java bytecode, and converts bytecode into native machine code.
 - JVM is OS-specific/platform-dependent, but bytecode (`.class` files) is platform-independent (same `.class` file runs in any JVM).
