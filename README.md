@@ -63,7 +63,9 @@ JVM is responsible for executing the Java program. The Java program run using JR
 
 JVM is platform-independent in the sense that the bytecode can run on any machine with a JVM, but the actual JVM implementation is platform-dependent. Different operating systems (e.g., Windows, Linux, macOS) require different JVM implementations that interact with the specific OS and hardware.
 
+<br/>
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250714182833376232/java_jit_compiler.jpg" width=600 />
+<br/>
 
 ### **Run the Compiled Java Program**
 
@@ -101,13 +103,45 @@ There are eight primitive data types:
 - __Character Type:__ char - is a single 16-bit Unicode character with the size of 2 bytes (16 bits).
 - __Boolean Type:__ boolean: Typically 1 byte (actual size can vary depending on JVM). Stores true or false.
 
-__Why Java has char size as 2 bytes:__ Unlike languages such as C/C++ that use the _ASCII character set_ (7-bit code), Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages, including Latin, Greek, Cyrillic, Chinese, Arabic, etc. As a result, Java uses 2 bytes to store a char, ensuring it can represent any Unicode character.
+**Why Java has char size as 2 bytes:** Unlike languages such as C/C++ that use the _ASCII character set_ (7-bit code), Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages, including Latin, Greek, Cyrillic, Chinese, Arabic, etc. As a result, Java uses 2 bytes to store a char, ensuring it can represent any Unicode character.
 
-Assigning a literal number that is outside of the valid range for a variable will throw an error.
+In Java, the **`L` (or l)** suffix is required when assigning a literal integer value that exceeds the range of an int to a long variable. When trying to assign an integer literal larger than Integer.MAX_VALUE to a long variable without the L suffix, the compiler will interpret that literal as an int. Since the value exceeds the int range, it will result in a compile-time error because of an integer overflow.
+
+```java
+// 2147483647 -> Integer.MAX_VALUE
+long longIntegerNum = 2147483648; // Error: The literal 2147483648 of type int is out of range 
+long longIntegerNumL = 2147483648L; // Works fine
+```
+
+**Overflow and Underflow in Java:** overflow and underflow (observed in Integer and Floating-point datatypes) refer to runtime conditions where the result of an arithmetic operation exceeds the maximum or falls below the minimum value that a data type can represent. 
+
+- Overflow occurs when a calculation produces a value larger than the maximum value that can be stored in the assigned data type.
+- Underflow occurs when a calculation produces a value smaller than the minimum value (closest to zero, or negative for signed types) that can be stored in the assigned data type.
+- In case of overflow/underflow, the compiler doesnot throw any error during compilation process.
+- Java handles integer overflow and underflow by "wrapping around" the values. e.g., adding 1 to Integer.MAX_VALUE results in Integer.MIN_VALUE. For floating-point numbers, underflow can result in 0.0, while overflow can result in Infinity or -Infinity.
+- Java's default behavior for arithmetic overflow and underflow does not involve throwing exceptions, which can make it challenging to detect and debug these issues.
+- However, when assigning a literal number value to a datatype that is outside of the range, the compiler will give an error.
+
+```java
+int maxInt = Integer.MAX_VALUE; // 2147483647
+int overflowResult = maxInt + 1; // Result will be -2147483648 (Integer.MIN_VALUE)
+
+int minInt = Integer.MIN_VALUE; // -2147483648
+int underflowResult = minInt - 1; // Result will be 2147483647 (Integer.MAX_VALUE)
+
+int num1 = Integer.MAX_VALUE + 1; // Code compiles
+int num2 = 2147483648; // Error: The literal 2147483648 of type int is out of range
+
+float largeFloat = Float.MAX_VALUE;
+float overflowFloat = largeFloat * 2; // Result will be Infinity
+
+float smallFloat = Float.MIN_VALUE; // Smallest positive non-zero value
+float underflowFloat = smallFloat / 2; // Result will be 0.0f
+```
 
 ### **Non-Primitive (Reference) Data Types**
 
 
 
-### **Overflow and Underflow in Java**
+
 
