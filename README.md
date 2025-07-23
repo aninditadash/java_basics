@@ -9,9 +9,9 @@ Java is a high-level, object-oriented programming language used to build web app
 
 The programming environment of Java consists of three components mainly: __JDK__, __JRE__, __JVM__.
 
-### **JDK**
+### **Java Development Kit (JDK)**
 
-JDK stands for Java Development Kit, enables the development and execution of Java programs. It is a set of development tools and libraries used to create Java programs. It works together with the JVM and JRE to run and build Java applications.
+JDK enables the development and execution of Java programs. It is a set of development tools and libraries used to create Java programs. It works together with the JVM and JRE to run and build Java applications.
 
 - Platform-dependent (OS specific - different version for windows, Linux, macOS).
 - JDK is only for development (it is not needed for running Java programs).
@@ -24,9 +24,9 @@ JDK stands for Java Development Kit, enables the development and execution of Ja
 - __Compilation:__ The source file is compiled by the Java Compiler (part of JDK) into bytecode, which is stored in a `.class` file (e.g., Example.class).
 - __Execution:__ The bytecode is executed by the JVM, which interprets the bytecode and runs the Java program.
 
-### **JRE**
+### **Java Runtime Environment (JRE)**
 
-JRE stands for Java Runtime Environment, and it provides an environment to run Java programs on the system. The environment includes Standard Libraries and JVM.
+JRE provides an environment to run Java programs on the system. The environment includes Standard Libraries and JVM.
 
 - Used to run Java applications.
 - Platform-dependent (OS specific).
@@ -44,9 +44,9 @@ When you run a Java program, the following steps occur:
 
 The following actions occur at runtime as listed below: Class Loader -> Byte Code Verifier -> Interpreter -> Executes the Byte Code, Make appropriate calls to the underlying hardware.
 
-### **JVM** 
+### **Java Virtual Machine (JVM)** 
 
-JVM stands for Java Virtual Machine. It's responsible for executing the Java program. The Java program run using JRE or JDK goes into JVM and JVM is responsible for executing the java program line by line, hence it is also known as an interpreter, but it also utilizes a Just-In-Time (JIT) compiler for performance optimization.
+JVM is responsible for executing the Java program. The Java program run using JRE or JDK goes into JVM and JVM is responsible for executing the java program line by line, hence it is also known as an interpreter, but it also utilizes a Just-In-Time (JIT) compiler for performance optimization.
 
 - Executes Java bytecode, and converts bytecode into native machine code.
 - JVM is OS-specific/platform-dependent, but bytecode (`.class` files) is platform-independent (same `.class` file runs in any JVM).
