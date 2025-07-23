@@ -2,6 +2,10 @@
 
 Java is a high-level, object-oriented programming language used to build web apps, mobile applications, and enterprise software systems. It is known for its **Write Once, Run Anywhere** capability, which means code written in Java can run on any device that supports the Java Virtual Machine (JVM). It is one of the most popular and widely used programming language and platform. A platform is an environment that helps to develop and run programs written in any programming language. 
 
+Notes:
+- [Setting up Environment Variables For Java](https://www.geeksforgeeks.org/java/setting-environment-java/).
+- [Setting up a Java Development Kit (JDK)](https://dev.java/learn/getting-started/#setting-up-jdk)
+
 ## **Table of contents**
 
 
@@ -55,6 +59,8 @@ JVM is responsible for executing the Java program. The Java program run using JR
 
 JVM is platform-independent in the sense that the bytecode can run on any machine with a JVM, but the actual JVM implementation is platform-dependent. Different operating systems (e.g., Windows, Linux, macOS) require different JVM implementations that interact with the specific OS and hardware.
 
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20250714182833376232/java_jit_compiler.jpg" width=600 />
+
 ### **Run the Compiled Java Program**
 
 ```java
@@ -68,7 +74,28 @@ __Why `.class` is not included in the java command:__ When running a Java progra
 java HelloWorld.java
 ```
 
-Notes:
-- [Setting up Environment Variables For Java](https://www.geeksforgeeks.org/java/setting-environment-java/).
-- [Setting up a Java Development Kit (JDK)](https://dev.java/learn/getting-started/#setting-up-jdk)
+### **How JVM Works - JVM Architecture**
+
+<https://www.geeksforgeeks.org/java/how-jvm-works-jvm-architecture/>
+
+## **Datatypes in Java**
+
+Java is statically typed programming language which means variable types are known at the compile time. In Java, compiler knows exactly what types each variable holds and enforces correct usage during compilation. Data types in Java are of different sizes and values that can be stored in a variable that is made as per convenience and circumstances to handle different scenarios or data requirements.
+
+A language is __statically typed__ if the type of a variable is known at compile time. So, the variable's data type is checked at compile time (before the program runs) rather than at runtime (when the program is executing). This allows compilers to catch type-related errors early on, potentially preventing runtime crashes and improving code reliability. 
+
+Java data types are categorized into two main groups: Primitive Data Types and Non-Primitive (Reference) Data Types.
+
+### **Primitive Data Types**
+
+These are the basic building blocks that store simple values directly in memory. They store only single values and have no additional capabilities.  They have a fixed size and are stored in the stack memory when declared as local variables within a method. If a primitive is a field within an object, it resides in the heap memory alongside the object.
+
+There are eight primitive data types:
+
+- __Integer Types:__ byte: 1 byte (8 bits), short: 2 bytes (16 bits), int: 4 bytes (32 bits) - Default for integer values, long: 8 bytes (64 bits).
+- __Floating-Point Types:__ float: 4 bytes (32 bits) - Single-precision, double: 8 bytes (64 bits) - Double-precision, default for decimal values.
+- __Character Type:__ char - is a single 16-bit Unicode character with the size of 2 bytes (16 bits).
+- __Boolean Type:__ boolean: Typically 1 byte (actual size can vary depending on JVM). Stores true or false.
+
+__Why Java has char size as 2 bytes:__ Unlike languages such as C/C++ that use the _ASCII character set_, Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages, including Latin, Greek, Cyrillic, Chinese, Arabic, etc. As a result, Java uses 2 bytes to store a char, ensuring it can represent any Unicode character.
 
