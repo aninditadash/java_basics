@@ -26,7 +26,7 @@ JDK enables the development and execution of Java programs. It is a set of devel
 - Includes JRE (to execute the java program) + Development tools (javac/compilers, debugger, etc.).
 - Used for writing and compiling Java code.
 
-#### **Working of JDK**
+**Working of JDK:** The JDK enables the development and execution of Java programs:
 
 - __Java Source File (e.g., Example.java):__ You write the Java program in a source file.
 - __Compilation:__ The source file is compiled by the Java Compiler (part of JDK) into bytecode, which is stored in a `.class` file (e.g., Example.class).
@@ -41,9 +41,7 @@ JRE provides an environment to run Java programs on the system. The environment 
 - Includes JVM + Libraries (e.g., rt.jar) and other components.
 - Used for running a Java application on a system.
 
-#### **Working of JRE**
-
-When you run a Java program, the following steps occur:
+**Working of JRE:** When you run a Java program, the following steps occur:
 
 - __Class Loader:__ The JRE’s class loader loads the `.class` file containing the bytecode into memory.
 - __Bytecode Verifier:__ JRE includes a bytecode verifier to ensure security before execution.
@@ -80,15 +78,19 @@ __Why `.class` is not included in the java command:__ When running a Java progra
 java HelloWorld.java
 ```
 
-### **How JVM Works - JVM Architecture**
+## **How JVM Works - JVM Architecture**
 
 <https://www.geeksforgeeks.org/java/how-jvm-works-jvm-architecture/>
+
+## **Variables in Java**
+
+
 
 ## **Datatypes in Java**
 
 Java is statically typed programming language which means variable types are known at the compile time. In Java, compiler knows exactly what types each variable holds and enforces correct usage during compilation. Data types in Java are of different sizes and values that can be stored in a variable that is made as per convenience and circumstances to handle different scenarios or data requirements.
 
-A language is __statically typed__ if the type of a variable is known at compile time. So, the variable's data type is checked at compile time (before the program runs) rather than at runtime (when the program is executing). This allows compilers to catch type-related errors early on, potentially preventing runtime crashes and improving code reliability. 
+A language is __statically typed__ if the type of a variable is known at compile time. So, the variable's data type is checked at compile time (before the program runs) rather than at runtime (when the program is executing). This allows compilers to catch type-related errors early on, potentially preventing runtime crashes and improving code reliability.
 
 Java data types are categorized into two main groups: Primitive Data Types and Non-Primitive (Reference) Data Types.
 
@@ -99,13 +101,13 @@ These are the basic building blocks that store simple values directly in memory.
 There are eight primitive data types:
 
 - __Integer Types:__ byte: 1 byte (8 bits), short: 2 bytes (16 bits), int: 4 bytes (32 bits) - Default for integer values, long: 8 bytes (64 bits).
-- __Floating-Point Types:__ float: 4 bytes (32 bits) - Single-precision, double: 8 bytes (64 bits) - Double-precision, default for decimal values.
+- __Floating-Point Types:__ float: 4 bytes (32 bits) - Single-precision, double: 8 bytes (64 bits) - Double-precision, default for decimal values. _Precision refers to the format and amount of space occupied by the relevant type._
 - __Character Type:__ char - is a single 16-bit Unicode character with the size of 2 bytes (16 bits).
 - __Boolean Type:__ boolean: Typically 1 byte (actual size can vary depending on JVM). Stores true or false.
 
 **Why Java has char size as 2 bytes:** Unlike languages such as C/C++ that use the _ASCII character set_ (7-bit code), Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages, including Latin, Greek, Cyrillic, Chinese, Arabic, etc. As a result, Java uses 2 bytes to store a char, ensuring it can represent any Unicode character.
 
-In Java, the **`L` (or l)** suffix is required when assigning a literal integer value that exceeds the range of an int to a long variable. When trying to assign an integer literal larger than Integer.MAX_VALUE to a long variable without the L suffix, the compiler will interpret that literal as an int. Since the value exceeds the int range, it will result in a compile-time error because of an integer overflow.
+In Java, the **`L` (or l) suffix is required when assigning a literal integer value that exceeds the range of an int to a long variable**. When trying to assign an integer literal larger than Integer.MAX_VALUE to a long variable without the L suffix, the compiler will interpret that literal as an int. Since the value exceeds the int range, it will result in a compile-time error because of an integer overflow.
 
 ```java
 // 2147483647 -> Integer.MAX_VALUE
