@@ -1,10 +1,14 @@
 # Introduction to Java
 
-Java is a high-level, object-oriented programming language used to build web apps, mobile applications, and enterprise software systems. It is known for its **Write Once, Run Anywhere** capability, which means code written in Java can run on any device that supports the Java Virtual Machine (JVM). It is one of the most popular and widely used programming language and platform. A platform is an environment that helps to develop and run programs written in any programming language. 
+Java is a high-level, object-oriented programming language used to build web apps, mobile applications, and enterprise software systems. It is platform-independent, which means we can write code once and run it anywhere using the Java Virtual Machine (JVM) (**Write Once, Run Anywhere**). It is one of the most popular and widely used programming language and platform. A platform is an environment that helps to develop and run programs written in any programming language. 
 
 Notes:
 - [Setting up Environment Variables For Java](https://www.geeksforgeeks.org/java/setting-environment-java/).
 - [Setting up a Java Development Kit (JDK)](https://dev.java/learn/getting-started/#setting-up-jdk)
+
+### **Key Features of Java**
+
+
 
 ## **Table of contents**
 
@@ -97,5 +101,13 @@ There are eight primitive data types:
 - __Character Type:__ char - is a single 16-bit Unicode character with the size of 2 bytes (16 bits).
 - __Boolean Type:__ boolean: Typically 1 byte (actual size can vary depending on JVM). Stores true or false.
 
-__Why Java has char size as 2 bytes:__ Unlike languages such as C/C++ that use the _ASCII character set_, Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages, including Latin, Greek, Cyrillic, Chinese, Arabic, etc. As a result, Java uses 2 bytes to store a char, ensuring it can represent any Unicode character.
+__Why Java has char size as 2 bytes:__ Unlike languages such as C/C++ that use the _ASCII character set_ (7-bit code), Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages, including Latin, Greek, Cyrillic, Chinese, Arabic, etc. As a result, Java uses 2 bytes to store a char, ensuring it can represent any Unicode character.
+
+Assigning a literal number that is outside of the valid range for a variable will throw an error.
+
+### **Non-Primitive (Reference) Data Types**
+
+
+
+### **Overflow and Underflow in Java**
 
