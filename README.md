@@ -170,5 +170,11 @@ These data types do not directly store values but instead store references (memo
 
 __Memory Allocation for Non-Primitives:__ Objects (instances of non-primitive types) and their data are stored on the heap memory. Variables of non-primitive types store references (memory locations) to these objects. References to these objects (i.e. the local variables referencing these objects) are stored in the stack memory. 
 
+## **Strings in Java**
+
+In Java, a String is the type of object that can store a sequence of characters enclosed by double quotes, and every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Java provides a robust and flexible API for handling strings, allowing for various operations such as concatenation, comparison, and manipulation. There are two ways to create a string in Java: string literal, using new keyword.
+
+- __Using string literal:__ In this case, the Java Virtual Machine (JVM) manages a "String Constant Pool." When a string literal is encountered, the JVM first checks if an identical string already exists in this pool. If it does, a reference to that existing object is returned. If not, a new String object is created in the pool, and a reference to it is returned. This mechanism promotes memory efficiency by reusing identical string objects.
+
 
 
