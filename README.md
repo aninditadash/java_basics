@@ -178,3 +178,18 @@ In Java, a String is the type of object that can store a sequence of characters 
 
 
 
+
+
+
+
+## **Flow Control in Java**
+
+### **Enhancements for Switch Statement in Java 13**
+
+Enhanced switch in Java, introduced as a preview feature in Java 12 and standardized in Java 14, offers a more concise and expressive way to handle conditional logic compared to the traditional switch statement.
+
+- __Arrow Syntax (->):__ This new syntax replaces the traditional colon (:) and eliminates the need for explicit break statements, preventing fall-through behavior by default.
+- __Switch Expressions:__ It can be used as an expression, meaning it can directly return a value, which can then be assigned to a variable.
+- __yield Keyword:__ When a case block in a switch expression contains multiple statements, the yield keyword is used to explicitly return a value from that specific branch. This replaces the use of break for returning values in such scenarios.
+- __Multiple Values per Case:__ Multiple case labels can be specified for a single branch by separating them with commas.
+
