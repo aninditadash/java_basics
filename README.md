@@ -96,12 +96,12 @@ Java data types are categorized into two main groups: Primitive Data Types and N
 
 ### **Primitive Data Types**
 
-These are the basic building blocks that store simple values directly in memory. They store only single values and have no additional capabilities.  They have a fixed size and are stored in the stack memory when declared as local variables within a method. If a primitive is a field within an object, it resides in the heap memory alongside the object.
+These are the basic building blocks that store simple values directly in memory. They store only single values and have no additional capabilities. They have a fixed size and are stored in the stack memory.
 
 There are eight primitive data types:
 
 - __Integer Types:__ byte: 1 byte (8 bits), short: 2 bytes (16 bits), int: 4 bytes (32 bits) - Default for integer values, long: 8 bytes (64 bits).
-- __Floating-Point Types:__ float: 4 bytes (32 bits) - Single-precision, double: 8 bytes (64 bits) - Double-precision, default for decimal values. _Precision refers to the format and amount of space occupied by the relevant type._
+- __Floating-Point Types:__ float: 4 bytes (32 bits) - Single-precision, double: 8 bytes (64 bits) - Double-precision, default for decimal values. _Precision refers to the format and amount of space occupied by the relevant type._ Should not be used for precise and accurate calculations. (use BigDecimal)
 - __Character Type:__ char - is a single 16-bit Unicode character with the size of 2 bytes (16 bits). Unicode range (0 to 65535).
 - __Boolean Type:__ boolean: Typically 1 byte (actual size can vary depending on JVM). Stores true or false.
 
@@ -153,9 +153,22 @@ float smallFloat = Float.MIN_VALUE; // Smallest positive non-zero value
 float underflowFloat = smallFloat / 2; // Result will be 0.0f
 ```
 
+__Memory Allocation/Efficiency for Primitives:__  Local primitive variables are typically stored on the stack memory. If a primitive variable is a field within an object, its value is stored directly within the object's memory on the heap. They are generally more memory-efficient and offer faster access because their values are stored directly.
+
 ### **Non-Primitive (Reference) Data Types**
 
+These data types do not directly store values but instead store references (memory addresses) to objects. It represents the set of properties or methods that are common to all objects of one type. Examples include String, Arrays, and user-defined classes and interfaces.
 
+- __Classes:__ User-defined blueprints or prototypes from which objects are created.
+- __Object:__ An Object is a basic unit of Object-Oriented Programming and represents real-life entities. An object consists of :
+  - _State:_ It is represented by the attributes of an object. It also reflects the properties of an object.
+  - _Behavior:_ It is represented by the methods of an object. It also reflects the response of an object to other objects.
+  - _Identity:_ It gives a unique name to an object and enables one object to interact with other objects.
+- __Interfaces:__ Like a class, an interface can have methods and variables, but the methods declared in an interface are by default abstract (only method signature, no body).
+- __Arrays:__ Collections of elements of the same data type.
+- __String:__ A sequence of characters (a special class in Java). The difference between a character array and a string in Java is, that the string is designed to hold a sequence of characters in a single variable whereas, a character array is a collection of separate char-type entities.
+
+__Memory Allocation for Non-Primitives:__ Objects (instances of non-primitive types) and their data are stored on the heap memory. Variables of non-primitive types store references (memory locations) to these objects. References to these objects (i.e. the local variables referencing these objects) are stored in the stack memory.
 
 
 
