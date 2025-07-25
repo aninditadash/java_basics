@@ -108,7 +108,7 @@ java HelloWorld.java
 
 ### **Method Call Stack in Java**
 
-
+Java is an object-oriented and stack-based programming language where methods play a key role in controlling the program's execution flow. When a method is called, Java uses an internal structure known as the call stack to manage execution, variables, and return addresses. _Call stack_ is a data structure used during runtime to manage method calls and local variables. It operates in a _Last-In-First-Out(LIFO)_ manner, meaning the last method called is the first one to complete and exit.
 
 
 ## **Datatypes in Java**
