@@ -179,7 +179,7 @@ In Java, a String is the type of object that can store a sequence of characters 
 
 
 
-
+__Confusing == and .equals() for Strings:__ == is used to compare object references, while .equals() is used to compare the content of the strings.
 
 
 ## **Flow Control in Java**
