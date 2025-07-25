@@ -82,7 +82,32 @@ java HelloWorld.java
 
 <https://www.geeksforgeeks.org/java/how-jvm-works-jvm-architecture/>
 
-## **Variables in Java**
+## **Variables and Methods in Java**
+
+### **Instance Variables**
+
+- Also known as non-static variables and are declared in a class outside of any method, constructor, or block. 
+- Created when an object of the class is created and destroyed when the object is destroyed.
+- Unlike local variables, we may use access specifiers for instance variables. If we do not specify any access specifier, then the default access specifier will be used.
+- Initialization of an instance variable is not mandatory. Its default value is dependent on the data type of variable.
+- For String it is null, for float it is 0.0f, for int it is 0, for Wrapper classes like Integer it is null, etc.
+- Scope of instance variables are throughout the class except the static contexts.
+- Instance variables can be accessed only by creating objects.
+- Instance variables can be initialized using constructors while creating an object.
+- Instance blocks can be used to initialize instance variables.
+
+### **Static Variables**
+
+- Also known as class variables and are declared similarly to instance variables, but declared using static keyword.
+- We can only have one copy of a static variable per class.
+- Static variables are created at the start of program execution and destroyed automatically when execution ends.
+- Initialization of a static variable is similar to instance variables.
+- When accessing a static variable through an object, compiler will show a warning message, but will replace the object name with the class name automatically.
+- Static variables cannot be declared locally inside an instance method.
+- Static blocks can be used to initialize static variables.
+
+### **Method Call Stack in Java**
+
 
 
 
