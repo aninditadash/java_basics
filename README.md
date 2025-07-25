@@ -200,12 +200,35 @@ __Memory Allocation for Non-Primitives:__ Objects (instances of non-primitive ty
 
 ## **Strings in Java**
 
-In Java, a String is the type of object that can store a sequence of characters enclosed by double quotes, and every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Java provides a robust and flexible API for handling strings, allowing for various operations such as concatenation, comparison, and manipulation. There are two ways to create a string in Java: string literal, using new keyword.
+In Java, a String is the type of object that can store a sequence of characters enclosed by double quotes, and every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Java provides a robust and flexible API for handling strings, allowing for various operations such as concatenation, comparison, and manipulation. There are two ways to create a string in Java: using string literal, using new keyword.
 
-- __Using string literal:__ In this case, the Java Virtual Machine (JVM) manages a "String Constant Pool." When a string literal is encountered, the JVM first checks if an identical string already exists in this pool. If it does, a reference to that existing object is returned. If not, a new String object is created in the pool, and a reference to it is returned. This mechanism promotes memory efficiency by reusing identical string objects.
+- Strings are immutable means their values cannot be changed once they are created.
+- If we try to change a string, Java does not modify the original one, it creates a new string object instead.
+- __Security:__ Strings are frequently used to store sensitive data like passwords, usernames, and file paths. Immutability ensures that once these values are set, they cannot be accidentally or maliciously altered by other parts of the program, enhancing security.
+- __Thread Safety:__ In a multi-threaded environment, mutable objects can lead to race conditions and data corruption if multiple threads try to modify them concurrently without proper synchronization. Since String objects are immutable, they are inherently thread-safe and can be shared across threads without requiring explicit synchronization mechanisms.
 
+### **How Strings are Stored in Java Memory**
 
+- __Using string literal:__ When a string literal is encountered, the JVM first checks if an identical string already exists in the string constant pool. If it does, a reference to that existing object is returned. If not, a new String object is created in the pool, and a reference to it is returned. This mechanism promotes memory efficiency by reusing identical string objects. This string constant pool is present in the heap.
+- __Using the new keyword:__ This method explicitly creates a new String object in the heap memory, regardless of whether an identical string exists in the String Constant Pool.
+- It is preferred to use String literals as it allows JVM to optimize memory allocation.
 
+### **String Methods**
+
+Three basic categories of String methods: 
+
+- String inspection methods: length, charAt, indexOf, lastIndexOf, isEmpty, isBlank (JDK 11)
+- Methods for comparing string values: contains, startsWith, endsWith, regionMatches
+- string manipulation methods: 
+
+__`isEmpty()` vs `isBlank():`__ `isEmpty()` checks if a string contains no characters at all. It returns true only if the string's length is zero. But if the string contains whitespace characters (spaces, tabs, newlines, etc.), it will return false. `isBlank()` method provides a more comprehensive check for "blankness." It returns true if the string is either empty (has a length of zero) or consists of only whitespace characters.
+
+```java
+String str = "\n \t";
+		
+System.out.println(str.isEmpty()); // false
+System.out.println(str.isBlank()); // true
+```
 
 __Confusing == and .equals() for Strings:__ == is used to compare object references, while .equals() is used to compare the content of the strings.
 
