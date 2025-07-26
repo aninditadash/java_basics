@@ -244,7 +244,7 @@ The StringBuilder class is a part of the _java.lang_ package that provides a mut
 - StringBuilder does not guarantee synchronization, while StringBuffer does. It is a high-performance, low-overhead and non-thread-safe alternative to StringBuffer, suitable for single-threaded applications, while StringBuffer is used for synchronization in multithreaded applications.
 - StringBuilder is faster than StringBuffer in most implementations.
 
-## **Flow Control in Java**
+## **Flow Control and Loops in Java**
 
 ### **Enhancements for Switch Statement in Java 13**
 
@@ -254,4 +254,8 @@ Enhanced switch in Java, introduced as a preview feature in Java 12 and standard
 - __Switch Expressions:__ It can be used as an expression, meaning it can directly return a value, which can then be assigned to a variable.
 - __yield Keyword:__ When a case block in a switch expression contains multiple statements, the yield keyword is used to explicitly return a value from that specific branch. This replaces the use of break for returning values in such scenarios.
 - __Multiple Values per Case:__ Multiple case labels can be specified for a single branch by separating them with commas.
+
+### **For-Each Loop in Java**
+
+The for-each loop (also called the enhanced for loop) simplifies iteration over arrays and collections. It is cleaner and more readable than the traditional for loop and is commonly used when the exact index of an element is not required.
 
