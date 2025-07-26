@@ -232,6 +232,17 @@ System.out.println(str.isBlank()); // true
 
 __Confusing == and .equals() for Strings:__ == is used to compare object references, while .equals() is used to compare the content of the strings.
 
+## **StringBuilder and StringBuffer classes in Java**
+
+### **Java StringBuilder Class**
+
+The StringBuilder class is a part of the _java.lang_ package that provides a mutable sequence of characters. Unlike String (which is immutable), StringBuilder allows in-place modifications, making it memory-efficient and faster for frequent string operations.
+
+- StringBuilder in Java represents a mutable sequence of characters.
+- String Class in Java creates an immutable sequence of characters, whereas StringBuilder creates a mutable sequence of characters, offering an alternative.
+- Functionality of StringBuilder is similar to the StringBuffer class, as both provide mutable sequences of characters.
+- StringBuilder does not guarantee synchronization, while StringBuffer does. It is a high-performance, low-overhead and non-thread-safe alternative to StringBuffer, suitable for single-threaded applications, while StringBuffer is used for synchronization in multithreaded applications.
+- StringBuilder is faster than StringBuffer in most implementations.
 
 ## **Flow Control in Java**
 
