@@ -267,6 +267,7 @@ The for-each loop (also called the enhanced for loop) simplifies iteration over 
 ## **OOP(Object Oriented Programming) in Java**
 
 Object-Oriented Programming (OOPs) is a programming approach that organizes code into classes and objects and makes it more structured and easy to manage. The core idea of OOPs is to bind data and the functions that operate on it, preventing unauthorized access from other parts of the code. A class is a blueprint that defines properties and behaviors, while an object is an instance of a class representing real-world entities.
+In Java, the `Object` class, found within the `java.lang` package, is the root of the entire class hierarchy. 
 
 ### **Classes and Objects**
 
@@ -292,9 +293,27 @@ __Anonymous Objects in Java:__ are objects that are instantiated without storing
 - Created & used instantly: Saves memory for short-lived tasks.
 - Common in event handling (e.g., button clicks).
 
+### **Constructors in Java**
+
+Constructors play an important role in object creation. A constructor is a special block of code that is called when an object is created. Its main job is to initialize the object, to set up its internal state, or to assign default values to its attributes. This process happens automatically when we use the "new" keyword to create an object.
+
+- A constructor has the same name as the class in which it is defined.
+- Constructors do not have any return type, not even void.
+- When an object of a class is created, the constructor is called automatically to initialize the object’s attributes.
+- Not necessary to write a constructor for a class as the Java compiler creates a default constructor if not explicitly added.
+- A constructor in Java can not be abstract, final, static, or Synchronized.
+- Access modifiers can be used in constructor declaration to control its access i.e which other class can call the constructor.
+
+There are three types of constructors in Java:
+
+- __Default Constructor:__ A constructor with no parameters. If no constructor is defined in a class, the Java compiler automatically provides a default constructor. If we define a parameterised constructor, the compiler no longer provides the default constructor. Default constructor can be implicit or explicit.
+- __Parameterized Constructor:__ A constructor that has parameters.
+- __Copy Constructor:__ Unlike other constructors copy constructor is passed with another object which copies the data available from the passed object to the newly created object.
+
+__Constructor Overloading:__ In Java, overloaded constructor is called based on the parameters specified when a "new" keyword is executed, as we can initialize an object in different ways. `this()` reference can be used during constructor overloading to call the different constructors implicitly from the parameterized constructor. Constructor calling must be the first statement of the constructor in Java.
 
 
-Note:  All classes have at least  one  constructor. If a class does not explicitly declare any, the Java compiler automatically provides a no-argument constructor, also called the default constructor. This default constructor calls the class parent's no-argument constructor (as it contains only one statement i.e super();), or the  Object  class constructor if the class has no other parent (as the Object class is the parent of all classes either directly or indirectly). 
+
 
 
 __Access Modifiers:__ A class can be public or has default access (Refer this for more details).
