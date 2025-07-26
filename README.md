@@ -259,3 +259,8 @@ Enhanced switch in Java, introduced as a preview feature in Java 12 and standard
 
 The for-each loop (also called the enhanced for loop) simplifies iteration over arrays and collections. It is cleaner and more readable than the traditional for loop and is commonly used when the exact index of an element is not required.
 
+- _We cannot modify array elements directly:_ for-each loop gives copy of each element, not a reference. So modifying the loop variable  does not affect the actual array or collection. For objects, the loop variable is a reference, so modifying fields of the object will affect the original.
+- No access to array/collection index
+- Cannot perform reverse iteration directly.
+- It has some performance overhead over the for a loop.
+
