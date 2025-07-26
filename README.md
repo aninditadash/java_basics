@@ -264,3 +264,51 @@ The for-each loop (also called the enhanced for loop) simplifies iteration over 
 - Cannot perform reverse iteration directly.
 - It has some performance overhead over the for a loop.
 
+## **OOP(Object Oriented Programming) in Java**
+
+Object-Oriented Programming (OOPs) is a programming approach that organizes code into classes and objects and makes it more structured and easy to manage. The core idea of OOPs is to bind data and the functions that operate on it, preventing unauthorized access from other parts of the code. A class is a blueprint that defines properties and behaviors, while an object is an instance of a class representing real-world entities.
+
+### **Classes and Objects**
+
+A __Class__ is a user-defined blueprint or prototype from which objects are created. It represents the set of properties or methods that are common to all objects of one type. Components of Java classes:
+
+- __Access Modifiers:__ used to control the visibility of the variables, classes, and methods within a class or package.
+- __Superclass (if any):__ name of the superclass, using keyword `extends`. _A class can only extend (subclass) one parent._
+- __Interfaces(if any):__ A comma-separated list of interfaces implemented by the class, using keyword `implements`. A class can implement more than one interface.
+- __Fields:__ Fields are variables defined within a class that hold the data or state of an object.
+- __Constructors:__ It is a special method in a class that is automatically called when an object is created. And it's name is same as class name.
+
+Objects are the instances of a class that are created to use the attributes and methods of a class. An object consists of:
+
+- __State:__ It is represented by attributes of an object. It also reflects the properties of an object.
+- __Behavior:__ It is represented by the methods of an object. It also reflects the response of an object with other objects.
+- __Identity:__ It gives a unique name to an object and enables one object to interact with other objects.
+
+When an object of a class is created, the class is said to be instantiated. In general, we can't create objects of an abstract class or an interface. The `new` operator instantiates a class by allocating memory for a new object and returning a reference to that memory. The new operator also invokes the class constructor.
+
+__Anonymous Objects in Java:__ are objects that are instantiated without storing their reference in a variable. They are used for one-time operations (e.g., method calls) and are discarded immediately after use.
+
+- No reference variable: Cannot reuse the object.
+- Created & used instantly: Saves memory for short-lived tasks.
+- Common in event handling (e.g., button clicks).
+
+
+
+Note:  All classes have at least  one  constructor. If a class does not explicitly declare any, the Java compiler automatically provides a no-argument constructor, also called the default constructor. This default constructor calls the class parent's no-argument constructor (as it contains only one statement i.e super();), or the  Object  class constructor if the class has no other parent (as the Object class is the parent of all classes either directly or indirectly). 
+
+
+__Access Modifiers:__ A class can be public or has default access (Refer this for more details).
+
+
+### **Abstraction**
+
+Data Abstraction is the property by virtue of which only the essential details are displayed to the user. It is the process of showing only essential information and hiding the complex implementation details. In Java, abstraction is achieved using abstract classes and interfaces, allowing you to define a common interface without specifying the full implementation.
+
+### **Encapsulation**
+
+It is defined as the wrapping up of data under a single unit. It is the mechanism of bundling data (variables) and the methods that operate on that data within a single unit (a class). It restricts direct access to an object's internal state, allowing interaction only through defined public methods (getters and setters). This promotes data hiding and security.
+
+
+https://www.geeksforgeeks.org/java/serialization-and-deserialization-in-java/
+https://www.geeksforgeeks.org/java/clone-method-in-java-2/
+https://www.geeksforgeeks.org/java/reflection-in-java/
