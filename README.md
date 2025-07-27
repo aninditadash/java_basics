@@ -427,6 +427,8 @@ Method Overriding: where method in the child class has the same name, return-typ
 - Overriden methods must have the same return type or covariant return type in the child class.
 - The overriden method cant have a lower access modifier, i.e. it cant have more restrictive access.
 - Final methods cannot be overridden.
+- When an overridden method is called through a superclass reference, Java determines which version(superclass/subclasses) of that method is to be executed and it depends on the type of the object being referred to and not the type of the reference variable.
+- A superclass reference variable can refer to a subclass object. This is also known as upcasting. Java uses this fact to resolve calls to overridden methods at run time.
 
 __Covariant Return Type:__ 
 
