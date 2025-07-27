@@ -65,14 +65,14 @@ JVM is platform-independent in the sense that the bytecode can run on any machin
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250714182833376232/java_jit_compiler.jpg" width=600 />
 <br/>
 
-### **Run the Compiled Java Program**
+### **Execute the Compiled Java Program**
 
 ```java
 javac HelloWorld.java
 java HelloWorld
 ```
 
-__Why `.class` is not included in the java command:__ When running a Java program, the java command expects a class name with the `main()` method specified. `javac` command compiles the `HelloWorld.java` file and generates `HelloWorld.class` file. After compilation, the command `java HelloWorld.class` is an incorrect command, this will cause an error because the JVM will look for a class named _HelloWorld.class, not HelloWorld_. Starting with Java SE 11/JDK 11, Java introduced the ability to launch a single-file source-code program with the java launcher, without first needing to explicitly compile the source code. This works by the java launcher automatically invoking the compiler and storing the compiled code in-memory.
+__Why `.class` is not included in the java command:__ When running a Java program, the java command expects a class name with the `main()` method specified. `javac` command compiles the `HelloWorld.java` file and generates `HelloWorld.class` file. After compilation, the command `java HelloWorld.class` is an incorrect command, this will cause an error because the JVM will look for a class named _HelloWorld.class, not HelloWorld_. Starting with Java SE 11/JDK 11, Java introduced the ability to launch a single-file source-code program with the java launcher, without first needing to explicitly compile the source code. This works by the java launcher automatically invoking the compiler and storing the compiled code in-memory. When you execute a Java program, the JVM looks for the `public static void main(String[] args)` method within the specified class to begin execution.
 
 ```java
 java HelloWorld.java
@@ -333,14 +333,50 @@ The following rules for inherited methods are enforced −
 
 It is defined as the wrapping up of data under a single unit. It is the mechanism of bundling data (variables) and the methods that operate on that data within a single unit (a class). It restricts direct access to an object's internal state, allowing interaction only through defined public methods (getters and setters). This promotes data hiding and security.
 
-### **Abstraction**
 
-Data Abstraction is the property by virtue of which only the essential details are displayed to the user. It is the process of showing only essential information and hiding the complex implementation details. In Java, abstraction is achieved using abstract classes and interfaces, allowing you to define a common interface without specifying the full implementation.
 
 ### **Inheritance**
 
+Inheritance is an important pillar of OOP. It is the mechanism in Java by which one class is allowed to inherit the features (fields and methods) of another class. We are achieving inheritance by using extends keyword. Inheritance is also known as __is-a__ relationship. It supports the concept of _reusability_.
+
+- Method Overriding is achievable only through Inheritance. It is one of the ways by which Java achieves Run Time Polymorphism.
+- The concept of abstraction where we do not have to provide all details, is achieved through inheritance. Abstraction only shows the functionality to the user.
 
 ### **Polymorphism**
+
+
+
+## **Types of Inheritance**
+
+
+## **Abstraction**
+
+Data Abstraction is the property by virtue of which only the essential details are displayed to the user. It is the process of showing only essential information and hiding the complex implementation details. In Java, abstraction is achieved using abstract classes and interfaces, allowing you to define a common interface without specifying the full implementation. Java provides two ways to implement abstraction: Abstract Classes (Partial Abstraction), Interface (100% Abstraction).
+
+### __Abstract Classes and Abstract Methods__
+
+- An abstract class is a class that is declared with an abstract keyword.
+- An abstract method is a method that is declared without implementation.
+- An abstract class may have both abstract methods (methods without implementation) and concrete methods (methods with implementation).
+- Any class that contains one or more abstract methods must also be declared with an abstract keyword.
+- We can have an abstract class without any abstract methods. This allows us to create classes that cannot be instantiated but can only be inherited. 
+- There can be no object of an abstract class. That is, an abstract class can not be directly instantiated with the new operator.
+- An abstract class can contain constructors, which are called when an instance of an inherited class is created.
+- Concrete classes are those that extend the abstract class or implement the interface and should contain the program logic.
+- Abstract classes can also have final methods (methods that cannot be overridden).
+- An abstract method in an abstract class can not be declared as final, as it will yield an error: "Illegal combination of modifiers: abstract and final".
+- If the Child class is unable to provide implementation to all abstract methods of the Parent class then we should declare that Child class as abstract so that the next level Child class should provide implementation to the remaining abstract methods.
+- Similar to the interface we can define static methods in an abstract class that can be called independently without an object.
+- So, an abstract class can have a main method, as the main method in Java is a static method.
+
+### **Interface**
+
+An Interface is defined as an abstract type used to specify the behaviour of a class. An interface in Java is a blueprint of a behaviour. A Java interface contains static constants and abstract methods. Apart from abstraction, interfaces can also be used to implement multiple inheritance in Java.
+
+- By default, variables in an interface are public, static, and final.
+- It supports loose coupling (classes depend on behavior, not implementation).
+- In other words, interfaces primarily define methods that other classes must implement.
+- An interface in Java defines a set of behaviours that a class can implement, usually representing an IS-A relationship, but not always in every scenario.
 
 
 https://www.geeksforgeeks.org/java/serialization-and-deserialization-in-java/
