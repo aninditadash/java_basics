@@ -392,6 +392,7 @@ Inheritance is an important pillar of OOP. It is the mechanism in Java by which 
 - Method Overriding is achievable only through Inheritance. It is one of the ways by which Java achieves Run Time Polymorphism.
 - The concept of abstraction where we do not have to provide all details, is achieved through inheritance. Abstraction only shows the functionality to the user.
 
+
 ### **Types of Inheritance**
 
 
