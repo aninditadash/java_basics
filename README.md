@@ -8,7 +8,7 @@ Notes:
 
 ### **Key Features of Java**
 
-
+<https://www.geeksforgeeks.org/java/java-features/>
 
 ## **Table of contents**
 
@@ -312,20 +312,35 @@ There are three types of constructors in Java:
 
 __Constructor Overloading:__ In Java, overloaded constructor is called based on the parameters specified when a "new" keyword is executed, as we can initialize an object in different ways. `this()` reference can be used during constructor overloading to call the different constructors implicitly from the parameterized constructor. Constructor calling must be the first statement of the constructor in Java.
 
+### **Access Modifiers**
 
+Access modifiers in Java are used to enforce the level of accessibility or visibility of the variables, classes, and methods within a class or package. There are different types of access modifiers that are used to define the accessibility in different ways.
 
+- __public Access Modifier:__ provides the highest access among all the modifiers. We can access it anywhere in the package. The public modifier allows to use the variable, methods and class to access in the same package.
+- __protected Access Modifier:__ allows the class, method and variable to be accessible within the same package and subclasses.
+- __private Access Modifier:__ used with method, class and variable and it can be only accessible in the class where it is defined.
+- __default Access Modifier:__ When the modifier is not defined (variable, method or class) then it is specified as default method or package private, having accessibility within the same package.
 
+The following rules for inherited methods are enforced −
 
-__Access Modifiers:__ A class can be public or has default access (Refer this for more details).
+- Methods declared public in a superclass also must be public in all subclasses.
+- Methods declared protected in a superclass must either be protected or public in subclasses; they cannot be private.
+- Methods declared private are not inherited at all, so there is no rule for them.
 
+<img src="https://usemynotes.com/wp-content/uploads/2021/02/what-are-access-specifiers-in-java.jpg" width=700 />
+
+### **Encapsulation**
+
+It is defined as the wrapping up of data under a single unit. It is the mechanism of bundling data (variables) and the methods that operate on that data within a single unit (a class). It restricts direct access to an object's internal state, allowing interaction only through defined public methods (getters and setters). This promotes data hiding and security.
 
 ### **Abstraction**
 
 Data Abstraction is the property by virtue of which only the essential details are displayed to the user. It is the process of showing only essential information and hiding the complex implementation details. In Java, abstraction is achieved using abstract classes and interfaces, allowing you to define a common interface without specifying the full implementation.
 
-### **Encapsulation**
+### **Inheritance**
 
-It is defined as the wrapping up of data under a single unit. It is the mechanism of bundling data (variables) and the methods that operate on that data within a single unit (a class). It restricts direct access to an object's internal state, allowing interaction only through defined public methods (getters and setters). This promotes data hiding and security.
+
+### **Polymorphism**
 
 
 https://www.geeksforgeeks.org/java/serialization-and-deserialization-in-java/
