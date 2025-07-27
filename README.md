@@ -329,25 +329,14 @@ The following rules for inherited methods are enforced −
 
 <img src="https://usemynotes.com/wp-content/uploads/2021/02/what-are-access-specifiers-in-java.jpg" width=700 />
 
-### **Encapsulation**
+## **Encapsulation**
 
-It is defined as the wrapping up of data under a single unit. It is the mechanism of bundling data (variables) and the methods that operate on that data within a single unit (a class). It restricts direct access to an object's internal state, allowing interaction only through defined public methods (getters and setters). This promotes data hiding and security.
+It is defined as the wrapping up of data under a single unit. It is the mechanism of bundling data (variables) and the methods that operate on that data within a single unit (a class). It restricts direct access to an object's internal state, allowing interaction only through defined public methods (getters and setters).
 
-
-
-### **Inheritance**
-
-Inheritance is an important pillar of OOP. It is the mechanism in Java by which one class is allowed to inherit the features (fields and methods) of another class. We are achieving inheritance by using extends keyword. Inheritance is also known as __is-a__ relationship. It supports the concept of _reusability_.
-
-- Method Overriding is achievable only through Inheritance. It is one of the ways by which Java achieves Run Time Polymorphism.
-- The concept of abstraction where we do not have to provide all details, is achieved through inheritance. Abstraction only shows the functionality to the user.
-
-### **Polymorphism**
-
-
-
-## **Types of Inheritance**
-
+- __Data Hiding:__ The internal data of an object is hidden from the outside world, preventing direct access.
+- __Data Integrity:__ Only validated or safe values can be assigned to an object’s attributes via setter methods.
+- __Reusability:__ Encapsulated code is more flexible and reusable for future modifications or requirements.
+- __Security:__ Sensitive data is protected as it cannot be accessed directly.
 
 ## **Abstraction**
 
@@ -377,6 +366,69 @@ An Interface is defined as an abstract type used to specify the behaviour of a c
 - It supports loose coupling (classes depend on behavior, not implementation).
 - In other words, interfaces primarily define methods that other classes must implement.
 - An interface in Java defines a set of behaviours that a class can implement, usually representing an IS-A relationship, but not always in every scenario.
+- All interface declarations should have the public or default access modifier; the abstract modifier will be added automatically by the compiler.
+- An interface method can’t be protected or final.
+- Default methods in interfaces introduced in JDK8 where we can provide a method implementation within the interface itself.
+- Static methods were also introduced in JDK8, that can be called independently without an object. These methods are not inherited. 
+- We use interfaces to add certain behavioral functionality that can be used by unrelated classes. For instance, Comparable, Comparator, and Cloneable are Java interfaces that can be implemented by unrelated classes, e.g. - Comparator interface is used to compare two instances of a class.
+- One interface can inherit another by the use of keyword `extends`. When a class implements an interface that inherits another interface, it must provide an implementation for all methods required by the interface inheritance chain.
+- Inside the Interface, constructors are not allowed.
+- Java classes support singular inheritance. However, by using interfaces, we’re also able to implement multiple inheritances.
+
+__Private Methods in Interfaces (Java 9):__ Interface can now include private methods.
+
+- Private methods are defined within the interface but it cannot be accessed by the implementing classes.
+- Private methods cannot be overridden by implementing classes as they are not inherited.
+- Unlike abstract methods, private methods in interfaces must have a method body (implementation).
+- Private methods are primarily used to share common code between multiple default or static methods within the interface, preventing code duplication.
+- Interfaces can also have private static methods, which can be called from other static methods or default methods within the interface.
+
+__Why default methods added in interfaces:__ Default methods were introduced in Java 8 to address the challenge of evolving interfaces without breaking existing code that implements those interfaces. Backward Compatibility and Interface Evolution: Prior to Java 8, if a new abstract method was added to an interface, all classes that implemented that interface were required to provide an implementation for the new method. This could lead to significant refactoring, especially in large codebases with many implementing classes. Default methods allow new methods to be added to an interface with a default implementation, meaning that existing implementing classes do not need to be modified unless they specifically want to override the default behavior.
+
+## **Inheritance**
+
+Inheritance is an important pillar of OOP. It is the mechanism in Java by which one class is allowed to inherit the features (fields and methods) of another class. We are achieving inheritance by using extends keyword. Inheritance is also known as __is-a__ relationship. It supports the concept of _reusability_.
+
+- Method Overriding is achievable only through Inheritance. It is one of the ways by which Java achieves Run Time Polymorphism.
+- The concept of abstraction where we do not have to provide all details, is achieved through inheritance. Abstraction only shows the functionality to the user.
+
+### **Types of Inheritance**
+
+
+## **Polymorphism**
+
+Polymorphism in Java is one of the core concepts in OOPs that allows objects to behave differently based on their specific class type. This means one entity can take many forms. In Java, polymorphism allows the same method or object to behave differently based on the context, specially on the object's actual runtime class. 
+
+- __Multiple Behaviors:__ The same method can behave differently depending on the object that calls this method.
+- __Method Overriding:__ A child class can redefine a method of its parent class.
+- __Method Overloading:__ We can define multiple methods with the same name but different parameters.
+- __Runtime Decision:__ At runtime, Java determines which method to call depending on the object's actual class.
+
+In Java Polymorphism is mainly divided into two types: 
+
+- __Compile-Time Polymorphism (Static):__ is also known as static polymorphism or early binding. It is a type of polymorphism that is resolved during the compilation process. Overloading of methods is called through the reference variable of a class. Compile-time polymorphism is achieved by method overloading and operator overloading (not supported by Java).
+- __Runtime Polymorphism (Dynamic):__ known as Dynamic Method Dispatch. It is a process in which a function call to the overridden method is resolved at runtime, rather than compile time. This type of polymorphism is achieved by Method Overriding.
+
+### **Method Overloading and Method Overriding**
+
+Method Overloading: where more than one method share the same name with different signature(Parameters) in a class. 
+
+- Difference in parameters may include number of parameters, datatype of parameters and their order.
+- The return type of these methods may or may not be same.
+- It reduces duplicate code.
+- We can overload static or instance methods.
+- Methods can be overloaded by subclasses. Its because a subclass inherits one version of the method from the parent class, and then the subclass can have another overloaded version of that method.
+
+Method Overriding: where method in the child class has the same name, return-type and parameters as in parent class. 
+
+- The child class provides the implementation for the method already written.
+- We cant override static methods.
+- Overriden methods must have the same return type or covariant return type in the child class.
+- The overriden method cant have a lower access modifier, i.e. it cant have more restrictive access.
+- Final methods cannot be overridden.
+
+__Covariant Return Type:__ 
+
 
 
 https://www.geeksforgeeks.org/java/serialization-and-deserialization-in-java/
