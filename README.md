@@ -246,7 +246,7 @@ The StringBuilder class is a part of the _java.lang_ package that provides a mut
 
 ## **Flow Control and Loops in Java**
 
-### **Enhancements for Switch Statement in Java 13**
+### **Enhanced Switch Statement**
 
 Enhanced switch in Java, introduced as a preview feature in Java 12 and standardized in Java 14, offers a more concise and expressive way to handle conditional logic compared to the traditional switch statement.
 
