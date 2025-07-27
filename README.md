@@ -267,7 +267,7 @@ The for-each loop (also called the enhanced for loop) simplifies iteration over 
 ## **OOP(Object Oriented Programming) in Java**
 
 Object-Oriented Programming (OOPs) is a programming approach that organizes code into classes and objects and makes it more structured and easy to manage. The core idea of OOPs is to bind data and the functions that operate on it, preventing unauthorized access from other parts of the code. A class is a blueprint that defines properties and behaviors, while an object is an instance of a class representing real-world entities.
-In Java, the `Object` class, found within the `java.lang` package, is the root of the entire class hierarchy. 
+In Java, the `Object` class, found within the `java.lang` package, is the root of the entire class hierarchy (`java.lang.Object`). 
 
 ### **Classes and Objects**
 
