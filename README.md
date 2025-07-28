@@ -412,7 +412,7 @@ In Java Polymorphism is mainly divided into two types:
 
 ### **Method Overloading and Method Overriding**
 
-Method Overloading: where more than one method share the same name with different signature(Parameters) in a class. 
+__Method Overloading:__ where more than one method share the same name with different signature(Parameters) in a class. 
 
 - Difference in parameters may include number of parameters, datatype of parameters and their order.
 - The return type of these methods may or may not be same.
@@ -420,7 +420,7 @@ Method Overloading: where more than one method share the same name with differen
 - We can overload static or instance methods.
 - Methods can be overloaded by subclasses. Its because a subclass inherits one version of the method from the parent class, and then the subclass can have another overloaded version of that method.
 
-Method Overriding: where method in the child class has the same name, return-type and parameters as in parent class. 
+__Method Overriding:__ where method in the child class has the same name, return-type and parameters as in parent class. 
 
 - The child class provides the implementation for the method already written.
 - We cant override static methods.
