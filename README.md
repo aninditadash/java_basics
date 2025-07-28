@@ -329,6 +329,16 @@ The following rules for inherited methods are enforced −
 
 <img src="https://usemynotes.com/wp-content/uploads/2021/02/what-are-access-specifiers-in-java.jpg" width=700 />
 
+### **Method Modifiers**
+
+In addition to access modifiers, methods have other modifiers.
+
+- __abstract:__ When you declare a method abstract, a method body is always omitted. An abstract method can only be declared on an abstract class or an interface.
+- __static:__ Sometimes called a class method, rather than an instance method, because it's called directly on the Class instance.
+- __final:__ A method that is final cannot be overridden by subclasses.
+- __default:__ Only applicable to an interface.
+- __synchronized:__ This modifier manages how multiple threads will access the code in this method.
+
 ## **Encapsulation**
 
 It is defined as the wrapping up of data under a single unit. It is the mechanism of bundling data (variables) and the methods that operate on that data within a single unit (a class). It restricts direct access to an object's internal state, allowing interaction only through defined public methods (getters and setters).
