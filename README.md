@@ -430,6 +430,25 @@ __Method Overriding:__ where method in the child class has the same name, return
 - When an overridden method is called through a superclass reference, Java determines which version(superclass/subclasses) of that method is to be executed and it depends on the type of the object being referred to and not the type of the reference variable.
 - A superclass reference variable can refer to a subclass object. This is also known as upcasting. Java uses this fact to resolve calls to overridden methods at run time.
 
+### **Class Type Casting in Java**
+
+
+
+__`instanceof` keyword:__ used for check if a reference variable contains a given type of object reference or not. It determines whether an object is an instance of a specified type (class, subclass, or interface) at runtime. It returns true if the object is an instance of the Type or a subclass/implementation of Type. Returns false otherwise, including when the object is null. 
+
+__Pattern Matching for instanceof (Java 14+):__ Java 14 introduced pattern matching for instanceof, which simplifies conditional type checking and casting. It allows you to declare a pattern variable directly within the instanceof check, eliminating the need for an explicit cast.
+
+```java
+Movie advMovie = Movie.getMovie("Adventure", "Shawshank Redemption");
+advMovie.watchMovie();  // parent class method
+if (advMovie instanceof Adventure adv) {
+	adv.watchAdventure();  // child class method
+}
+```
+
+We have seen here that a parent class data member is accessed when a reference of parent type refers to a child object. We can access child data members using typecasting. 
+
+
 __Covariant Return Type:__ 
 
 
