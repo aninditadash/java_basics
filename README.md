@@ -370,20 +370,21 @@ Data Abstraction is the property by virtue of which only the essential details a
 
 ### **Interface**
 
-An Interface is defined as an abstract type used to specify the behaviour of a class. An interface in Java is a blueprint of a behaviour. A Java interface contains static constants and abstract methods. Apart from abstraction, interfaces can also be used to implement multiple inheritance in Java.
+An Interface is defined as an abstract type used to specify the behaviour of a class. An interface in Java is a blueprint of a behaviour. A Java interface contains static constants and abstract methods. Apart from abstraction, interfaces can also be used to implement multiple inheritance in Java. Its more like a contract between the class and client code which the compiler enforces.
 
 - By default, variables in an interface are public, static, and final.
 - It supports loose coupling (classes depend on behavior, not implementation).
 - In other words, interfaces primarily define methods that other classes must implement.
 - An interface in Java defines a set of behaviours that a class can implement, usually representing an IS-A relationship, but not always in every scenario.
 - All interface declarations should have the public or default access modifier; the abstract modifier will be added automatically by the compiler.
-- An interface method can’t be protected or final.
 - Default methods in interfaces introduced in JDK8 where we can provide a method implementation within the interface itself.
 - Static methods were also introduced in JDK8, that can be called independently without an object. These methods are not inherited. 
 - We use interfaces to add certain behavioral functionality that can be used by unrelated classes. For instance, Comparable, Comparator, and Cloneable are Java interfaces that can be implemented by unrelated classes, e.g. - Comparator interface is used to compare two instances of a class.
 - One interface can inherit another by the use of keyword `extends`. When a class implements an interface that inherits another interface, it must provide an implementation for all methods required by the interface inheritance chain.
 - Inside the Interface, constructors are not allowed.
 - Java classes support singular inheritance. However, by using interfaces, we’re also able to implement multiple inheritances.
+
+__All methods on an interface are implicitly public:__ If we omit an access modifier on a class member, its implicitly package-private.  If we omit an access modifier on an interface member, its implicitly public. Changing the access modifier of a method to protected on an interface is a compiler error, whether the method is concrete or abstract. Only a concrete method can have private access.
 
 __Private Methods in Interfaces (Java 9):__ Interface can now include private methods.
 
@@ -394,6 +395,13 @@ __Private Methods in Interfaces (Java 9):__ Interface can now include private me
 - Interfaces can also have private static methods, which can be called from other static methods or default methods within the interface.
 
 __Why default methods added in interfaces:__ Default methods were introduced in Java 8 to address the challenge of evolving interfaces without breaking existing code that implements those interfaces. Backward Compatibility and Interface Evolution: Prior to Java 8, if a new abstract method was added to an interface, all classes that implemented that interface were required to provide an implementation for the new method. This could lead to significant refactoring, especially in large codebases with many implementing classes. Default methods allow new methods to be added to an interface with a default implementation, meaning that existing implementing classes do not need to be modified unless they specifically want to override the default behavior.
+
+### __final Modifier in Java__
+
+- A final method cannot be overridden by a subclass.
+- A final field means an object's field can't be reassigned or given a different value after its initialization.
+- A final static field is a class field that can't be reassigned or given a different value after the class's initialization process.
+- A final class can't be overridden, meaning no class can use it in the extends clause.
 
 ## **Inheritance**
 
