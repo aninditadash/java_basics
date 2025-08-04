@@ -26,6 +26,7 @@ JRE provides an environment to execute Java programs on the system.
 - Platform-dependent.
 - Includes JVM + Standard Libraries (e.g., rt.jar) and other components.
 - Class loader loads the `.class` file containing the bytecode into memory (runtime).
+- Class loader is responsible for dynamically loading the java classes and interfaces to JVM
 - Bytecode verifier to ensure security before execution (runtime).
 
 ### **Java Virtual Machine (JVM)** 
@@ -41,23 +42,6 @@ JVM is platform-independent in the sense that the bytecode can run on any machin
 <br/>
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250714182833376232/java_jit_compiler.jpg" width=600 />
 <br/>
-
-### **Execute the Compiled Java Program**
-
-```java
-javac HelloWorld.java
-java HelloWorld
-```
-
-__Why `.class` is not included in the java command:__ When running a Java program, the java command expects a class name with the `main()` method specified. `javac` command compiles the `HelloWorld.java` file and generates `HelloWorld.class` file. After compilation, the command `java HelloWorld.class` is an incorrect command, this will cause an error because the JVM will look for a class named _HelloWorld.class, not HelloWorld_. Starting with Java SE 11/JDK 11, Java introduced the ability to launch a single-file source-code program with the java launcher, without first needing to explicitly compile the source code. This works by the java launcher automatically invoking the compiler and storing the compiled code in-memory. When you execute a Java program, the JVM looks for the `public static void main(String[] args)` method within the specified class to begin execution.
-
-```java
-java HelloWorld.java
-```
-
-## **How JVM Works - JVM Architecture**
-
-<https://www.geeksforgeeks.org/java/how-jvm-works-jvm-architecture/>
 
 ## **Variables and Methods in Java**
 
