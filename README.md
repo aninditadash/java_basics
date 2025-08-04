@@ -117,7 +117,18 @@ long longIntegerNumL = 2147483648L; // Works fine
 ```
 
 **Wrapper classes in Java** are the ones whose objects represent primitive data types, i.e. wrapper classes convert primitive datatypes into objects. They provide the feature of autoboxing and unboxing.
+Autoboxing and Unboxing
+1. Autoboxing
+The automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing. For example – conversion of int to Integer, long to Long, double to Double, etc.
+2. Unboxing
+It is just the reverse process of autoboxing. Automatically converting an object of a wrapper class to its corresponding primitive type is known as unboxing. For example, conversion of Integer to int, Long to long, Double to double, etc.
 
+Advantages of Wrapper Classes
+Collections allow only object data.
+On object data we can call multiple methods compareTo(), equals(), toString()
+The cloning process only works on objects
+Object data allows null values.
+Serialization allows only object data.
 
 **Overflow and Underflow in Java:** overflow and underflow (observed in Integer and Floating-point datatypes) refer to runtime conditions where the result of an arithmetic operation exceeds the maximum or falls below the minimum value that a data type can represent. 
 
