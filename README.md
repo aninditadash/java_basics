@@ -161,7 +161,7 @@ __Memory Allocation for Non-Primitives:__ Objects (instances of non-primitive ty
 
 ## **Strings in Java**
 
-In Java, a String is the type of object that can store a sequence of characters enclosed by double quotes, and every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Java provides a robust and flexible API for handling strings, allowing for various operations such as concatenation, comparison, and manipulation. There are two ways to create a string in Java: using string literal, using new keyword.
+In Java strings, every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Two ways to create a string in Java: using string literal, using new keyword.
 
 - Strings are immutable means their values cannot be changed once they are created.
 - If we try to change a string, Java does not modify the original one, it creates a new string object instead.
@@ -170,9 +170,9 @@ In Java, a String is the type of object that can store a sequence of characters 
 
 ### **How Strings are Stored in Java Memory**
 
-- __Using string literal:__ When a string literal is encountered, the JVM first checks if an identical string already exists in the string constant pool. If it does, a reference to that existing object is returned. If not, a new String object is created in the pool, and a reference to it is returned. This mechanism promotes memory efficiency by reusing identical string objects. This string constant pool is present in the heap.
+- __Using string literal:__ When a string literal is encountered, the JVM first checks if an identical string already exists in the string constant pool. If it does, a reference to that existing object is returned, else a new String object is created in the pool, and a reference to it is returned. Promotes memory efficiency. 
 - __Using the new keyword:__ This method explicitly creates a new String object in the heap memory, regardless of whether an identical string exists in the String Constant Pool.
-- It is preferred to use String literals as it allows JVM to optimize memory allocation.
+- _String constant pool_ is present in the heap.
 
 ### **String Methods**
 
