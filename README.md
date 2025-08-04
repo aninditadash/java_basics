@@ -116,6 +116,9 @@ long longIntegerNum = 2147483648; // Error: The literal 2147483648 of type int i
 long longIntegerNumL = 2147483648L; // Works fine
 ```
 
+**Wrapper classes in Java** are the ones whose objects represent primitive data types, i.e. wrapper classes convert primitive datatypes into objects. They provide the feature of autoboxing and unboxing.
+
+
 **Overflow and Underflow in Java:** overflow and underflow (observed in Integer and Floating-point datatypes) refer to runtime conditions where the result of an arithmetic operation exceeds the maximum or falls below the minimum value that a data type can represent. 
 
 - Overflow occurs when a calculation produces a value larger than the maximum value that can be stored in the assigned data type.
