@@ -436,7 +436,7 @@ __Method Overriding:__ where method in the child class has the same name, return
 - The overriden method cant have a lower access modifier, i.e. it cant have more restrictive access.
 - Final methods cannot be overridden.
 - When an overridden method is called through a superclass reference, Java determines which version(superclass/subclasses) of that method is to be executed and it depends on the type of the object being referred to and not the type of the reference variable.
-- A superclass reference variable can refer to a subclass object. This is also known as upcasting. Java uses this fact to resolve calls to overridden methods at run time.
+- A crucial aspect of dynamic method dispatch is upcasting. A superclass reference variable can refer to a subclass object. This is also known as upcasting. Java uses this fact to resolve calls to overridden methods at run time.
 
 ### **Class Type Casting in Java**
 
