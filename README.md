@@ -456,7 +456,14 @@ We have seen here that a parent class data member is accessed when a reference o
 
 __Covariant Return Type:__ 
 
-
+Covariant return types in Java refer to the ability of an overriding method in a subclass to return a more specific type than the return type of the method it overrides in the superclass. This feature was introduced in Java 5.0. 
+Key principles of covariant return types:
+Subtype Relationship:
+The return type of the overriding method must be a subtype (or the same type) of the return type of the overridden method in the superclass.
+Method Signature:
+The method name and parameter types of the overriding method must be identical to the overridden method. Only the return type can differ, provided it adheres to the subtype rule.
+Non-Primitive Types:
+Covariant return types are applicable only to non-primitive return types (classes, interfaces, arrays, etc.), not to primitive types like int, boolean, char, etc. 
 
 https://www.geeksforgeeks.org/java/serialization-and-deserialization-in-java/
 https://www.geeksforgeeks.org/java/clone-method-in-java-2/
