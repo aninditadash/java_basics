@@ -176,9 +176,6 @@ These data types do not directly store values but instead store references (memo
 
 - __Classes:__ User-defined blueprints or prototypes from which objects are created.
 - __Object:__ An Object is a basic unit of Object-Oriented Programming and represents real-life entities. An object consists of :
-  - _State:_ It is represented by the attributes of an object. It also reflects the properties of an object.
-  - _Behavior:_ It is represented by the methods of an object. It also reflects the response of an object to other objects.
-  - _Identity:_ It gives a unique name to an object and enables one object to interact with other objects.
 - __Interfaces:__ Like a class, an interface can have methods and variables, but the methods declared in an interface are by default abstract (only method signature, no body).
 - __Arrays:__ Collections of elements of the same data type.
 - __String:__ A sequence of characters (a special class in Java). The difference between a character array and a string in Java is, that the string is designed to hold a sequence of characters in a single variable whereas, a character array is a collection of separate char-type entities.
@@ -217,7 +214,7 @@ System.out.println(str.isEmpty()); // false
 System.out.println(str.isBlank()); // true
 ```
 
-__Confusing == and .equals() for Strings:__ == is used to compare object references, while .equals() is used to compare the content of the strings.
+__Confusing == and .equals() for Strings:__ `==` is used to compare object references, while `.equals()` is used to compare the content of the strings.
 
 ## **StringBuilder and StringBuffer classes in Java**
 
@@ -230,6 +227,12 @@ The StringBuilder class is a part of the _java.lang_ package that provides a mut
 - Functionality of StringBuilder is similar to the StringBuffer class, as both provide mutable sequences of characters.
 - StringBuilder does not guarantee synchronization, while StringBuffer does. It is a high-performance, low-overhead and non-thread-safe alternative to StringBuffer, suitable for single-threaded applications, while StringBuffer is used for synchronization in multithreaded applications.
 - StringBuilder is faster than StringBuffer in most implementations.
+
+### **Java Records vs POJOs**
+
+Records are immutable by default. This means that once a record object is created, its values cannot be changed. This can be useful for representing data that should not change once it is created. POJOs, on the other hand, are mutable by default and require additional effort to make them immutable.
+
+https://www.geeksforgeeks.org/java/what-are-java-records-and-how-to-use-them-alongside-constructors-and-methods/
 
 ## **Flow Control and Loops in Java**
 
