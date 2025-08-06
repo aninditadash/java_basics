@@ -43,6 +43,18 @@ JVM is platform-independent in the sense that the bytecode can run on any machin
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250714182833376232/java_jit_compiler.jpg" width=600 />
 <br/>
 
+Memory storages available with JVM
+JVM consists of a few memory storages as mentioned below:
+
+Class(Method) Area: stores class-level data of every class such as the runtime constant pool, field, and method data, and the code for methods.
+Heap: Objects are created or objects are stored. It is used to allocate memory to objects during run time.
+Stack: stores data and partial results which will be needed while returning value for method and performing dynamic linking
+Program Counter Register: stores the address of the Java virtual machine instruction currently being executed.
+Native Method Stack: stores all the native methods used in the application.
+
+---
+
+
 ## **Variables and Methods in Java**
 
 ### **Instance Variables**
