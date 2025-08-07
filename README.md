@@ -43,37 +43,23 @@ JVM is platform-independent in the sense that the bytecode can run on any machin
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250714182833376232/java_jit_compiler.jpg" width=600 />
 <br/>
 
-Memory storages available with JVM
-JVM consists of a few memory storages as mentioned below:
-
-Class(Method) Area: stores class-level data of every class such as the runtime constant pool, field, and method data, and the code for methods.
-Heap: Objects are created or objects are stored. It is used to allocate memory to objects during run time.
-Stack: stores data and partial results which will be needed while returning value for method and performing dynamic linking
-Program Counter Register: stores the address of the Java virtual machine instruction currently being executed.
-Native Method Stack: stores all the native methods used in the application.
-
----
-
 
 ## **Variables and Methods in Java**
 
 ### **Instance Variables**
 
-- Also known as non-static variables and are declared in a class outside of any method, constructor, or block. 
-- Created when an object of the class is created and destroyed when the object is destroyed.
-- Unlike local variables, we may use access specifiers for instance variables. If we do not specify any access specifier, then the default access specifier will be used.
+- non-static variables and are declared in a class outside of any method, constructor, or block. 
+- Created when an object of the class is created and destroyed when the object is destroyed (same for static variables). 
 - Initialization of an instance variable is not mandatory. Its default value is dependent on the data type of variable.
 - For String it is null, for float it is 0.0f, for int it is 0, for Wrapper classes like Integer it is null, etc.
 - Scope of instance variables are throughout the class except the static contexts.
-- Instance variables can be accessed only by creating objects.
-- Instance variables can be initialized using constructors while creating an object.
+- accessed only by creating objects, and can be initialized using constructors while creating an object.
 - Instance blocks can be used to initialize instance variables.
 
 ### **Static Variables**
 
-- Also known as class variables and are declared similarly to instance variables, but declared using static keyword.
+- class variables and are declared similarly to instance variables, but declared using static keyword.
 - We can only have one copy of a static variable per class.
-- Static variables are created at the start of program execution and destroyed automatically when execution ends.
 - Initialization of a static variable is similar to instance variables.
 - When accessing a static variable through an object, compiler will show a warning message, but will replace the object name with the class name automatically.
 - Static variables cannot be declared locally inside an instance method.
@@ -89,15 +75,11 @@ Java is an object-oriented and stack-based programming language where methods pl
 
 ## **Datatypes in Java**
 
-Java is statically typed programming language which means variable types are known at the compile time. In Java, compiler knows exactly what types each variable holds and enforces correct usage during compilation. Data types in Java are of different sizes and values that can be stored in a variable that is made as per convenience and circumstances to handle different scenarios or data requirements.
-
-A language is __statically typed__ if the type of a variable is known at compile time. So, the variable's data type is checked at compile time (before the program runs) rather than at runtime (when the program is executing). This allows compilers to catch type-related errors early on, potentially preventing runtime crashes and improving code reliability.
-
-Java data types are categorized into two main groups: Primitive Data Types and Non-Primitive (Reference) Data Types.
+Java is statically typed programming language which means variable types are known at the compile time. A language is __statically typed__ if the type of a variable is known at compile time. So, the variable's data type is checked at compile time (before the program runs) rather than at runtime (when the program is executing). This allows compilers to catch type-related errors early on, potentially preventing runtime crashes and improving code reliability.
 
 ### **Primitive Data Types**
 
-These are the basic building blocks that store simple values directly in memory. They store only single values and have no additional capabilities. They have a fixed size and are stored in the stack memory.
+They store only single values and have no additional capabilities. They have a fixed size and are stored in the stack memory.
 
 There are eight primitive data types:
 
@@ -110,7 +92,7 @@ There are eight primitive data types:
 
 **In Java, a `char` variable can be assigned a value in several ways:** 
 
-- Using a character literal:
+- Using a character literal.
 - Using an integer literal representing a Unicode value: char takes 2 bytes (16-bit UTF encoding ), while int takes 4 bytes (32-bit). Here, we need to typecast the int to get converted to a char. Every character has its own unique code called a Unicode value, which is represented by a numeric value. Here, we convert the numerical value to its equivalent ASCII representation.
 - Using a Unicode escape sequence: we can directly specify the Unicode value using a `\u` escape sequence followed by four hexadecimal digits.
 
@@ -128,10 +110,9 @@ long longIntegerNum = 2147483648; // Error: The literal 2147483648 of type int i
 long longIntegerNumL = 2147483648L; // Works fine
 ```
 
-**Wrapper classes in Java** are the ones whose objects represent primitive data types, i.e. wrapper classes convert primitive datatypes into objects. They provide the feature of autoboxing and unboxing.
-Autoboxing and Unboxing
-1. Autoboxing
-The automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing. For example – conversion of int to Integer, long to Long, double to Double, etc.
+### **Wrapper classes in Java** 
+
+Wrapper classes are the ones whose objects represent primitive data types, i.e. wrapper classes convert primitive datatypes into objects. They provide the feature of autoboxing and unboxing __Autoboxing:__  automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing. For example – conversion of int to Integer, long to Long, double to Double, etc.
 2. Unboxing
 It is just the reverse process of autoboxing. Automatically converting an object of a wrapper class to its corresponding primitive type is known as unboxing. For example, conversion of Integer to int, Long to long, Double to double, etc.
 
