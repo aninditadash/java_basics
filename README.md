@@ -367,15 +367,6 @@ __Private Methods in Interfaces (Java 9):__ Interface can now include private me
 
 __Why default methods added in interfaces:__ Default methods were introduced in Java 8 to address the challenge of evolving interfaces without breaking existing code that implements those interfaces. Backward Compatibility and Interface Evolution: Prior to Java 8, if a new abstract method was added to an interface, all classes that implemented that interface were required to provide an implementation for the new method. This could lead to significant refactoring, especially in large codebases with many implementing classes. Default methods allow new methods to be added to an interface with a default implementation, meaning that existing implementing classes do not need to be modified unless they specifically want to override the default behavior.
 
-### __final Modifier in Java__
-
-- A final method cannot be overridden by a subclass.
-- A final field means an object's field can't be reassigned or given a different value after its initialization.
-- A final static field is a class field that can't be reassigned or given a different value after the class's initialization process.
-- A final class can't be overridden, meaning no class can use it in the extends clause.
-- A final variable in a block of code, means once its assigned a value, any remaining code in the block can't change it.
-- A final method paramter means we cant assign a different value to that parameter in the method code block. 
-
 ## **Inheritance**
 
 Inheritance is an important pillar of OOP. It is the mechanism in Java by which one class is allowed to inherit the features (fields and methods) of another class. We are achieving inheritance by using extends keyword. Inheritance is also known as __is-a__ relationship. It supports the concept of _reusability_.
