@@ -373,6 +373,8 @@ __Why default methods added in interfaces:__ Default methods were introduced in 
 - A final field means an object's field can't be reassigned or given a different value after its initialization.
 - A final static field is a class field that can't be reassigned or given a different value after the class's initialization process.
 - A final class can't be overridden, meaning no class can use it in the extends clause.
+- A final variable in a block of code, means once its assigned a value, any remaining code in the block can't change it.
+- A final method paramter means we cant assign a different value to that parameter in the method code block. 
 
 ## **Inheritance**
 
@@ -420,8 +422,6 @@ __Method Overriding:__ where method in the child class has the same name, return
 - A crucial aspect of dynamic method dispatch is upcasting. A superclass reference variable can refer to a subclass object. This is also known as upcasting. Java uses this fact to resolve calls to overridden methods at run time.
 
 ### **Class Type Casting in Java**
-
-
 
 __`instanceof` keyword:__ used for check if a reference variable contains a given type of object reference or not. It determines whether an object is an instance of a specified type (class, subclass, or interface) at runtime. It returns true if the object is an instance of the Type or a subclass/implementation of Type. Returns false otherwise, including when the object is null. 
 
