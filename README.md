@@ -215,25 +215,6 @@ Records are immutable by default. This means that once a record object is create
 
 https://www.geeksforgeeks.org/java/what-are-java-records-and-how-to-use-them-alongside-constructors-and-methods/
 
-## **Flow Control and Loops in Java**
-
-### **Enhanced Switch Statement**
-
-Enhanced switch in Java, introduced as a preview feature in Java 12 and standardized in Java 14, offers a more concise and expressive way to handle conditional logic compared to the traditional switch statement.
-
-- __Arrow Syntax (->):__ This new syntax replaces the traditional colon (:) and eliminates the need for explicit break statements, preventing fall-through behavior by default.
-- __Switch Expressions:__ It can be used as an expression, meaning it can directly return a value, which can then be assigned to a variable.
-- __yield Keyword:__ When a case block in a switch expression contains multiple statements, the yield keyword is used to explicitly return a value from that specific branch. This replaces the use of break for returning values in such scenarios.
-- __Multiple Values per Case:__ Multiple case labels can be specified for a single branch by separating them with commas.
-
-### **For-Each Loop in Java**
-
-The for-each loop (also called the enhanced for loop) simplifies iteration over arrays and collections. It is cleaner and more readable than the traditional for loop and is commonly used when the exact index of an element is not required.
-
-- _We cannot modify array elements directly:_ for-each loop gives copy of each element, not a reference. So modifying the loop variable  does not affect the actual array or collection. For objects, the loop variable is a reference, so modifying fields of the object will affect the original.
-- No access to array/collection index
-- Cannot perform reverse iteration directly.
-- It has some performance overhead over the for a loop.
 
 ## **OOP(Object Oriented Programming) in Java**
 
