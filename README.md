@@ -9,39 +9,7 @@ Java is a high-level, object-oriented programming language used to build web app
 
 Java programming environment consists of three components mainly: __JDK__, __JRE__, __JVM__.
 
-### **Java Development Kit (JDK)**
 
-JDK enables the development and execution of Java programs.
-
-- Platform-dependent (based on OS).
-- JDK is only for development (not needed for running Java programs).
-- Includes JRE (to execute the java program) + Development tools (javac/compilers, debugger, etc.).
-- Source file (`.java` file) is compiled by the `javac` command into bytecode and stored in `.class` file.
-- bytecode is interpreted and executed by the JVM.
-
-### **Java Runtime Environment (JRE)**
-
-JRE provides an environment to execute Java programs on the system. 
-
-- Platform-dependent.
-- Includes JVM + Standard Libraries (e.g., rt.jar) and other components.
-- Class loader loads the `.class` file containing the bytecode into memory (runtime).
-- Class loader is responsible for dynamically loading the java classes and interfaces to JVM
-- Bytecode verifier to ensure security before execution (runtime).
-
-### **Java Virtual Machine (JVM)** 
-
-JVM is responsible for executing the Java program.
-
-- Executes Java bytecode, and converts bytecode into native machine code.
-- JVM is OS-specific/platform-dependent, but bytecode (`.class` files) is platform-independent (same `.class` file runs in any JVM).
-- While JVM interprets bytecode instructions one by one when running in interpreter-only mode, the JIT compiler translates frequently executed bytecode into native machine code during runtime.
-
-JVM is platform-independent in the sense that the bytecode can run on any machine with a JVM, but the actual JVM implementation is platform-dependent i.e. each OS has its own JVM implementation.
-
-<br/>
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20250714182833376232/java_jit_compiler.jpg" width=600 />
-<br/>
 
 
 ## **Variables and Methods in Java**
