@@ -91,13 +91,8 @@ The cloning process only works on objects
 Object data allows null values.
 Serialization allows only object data.
 
-**Overflow and Underflow in Java:** overflow and underflow (observed in Integer and Floating-point datatypes) refer to runtime conditions where the result of an arithmetic operation exceeds the maximum or falls below the minimum value that a data type can represent. 
+**Overflow and Underflow in Java:** overflow and underflow (observed in Integer/Floating-point datatypes) refer to runtime conditions where the result of an arithmetic operation exceeds the maximum (Overflow) or falls below the minimum value (Underflow), which is out of range of the declared data type. Java compiler does not throw an exception/error when overflow/underflow occurs, since it performs **integer-wraparound:** when an arithmetic operation exceeds the maximum or minimum limit of a type, it silently rolls over to the opposite extreme without throwing an error.
 
-- Overflow occurs when a calculation produces a value larger than the maximum value that can be stored in the assigned data type.
-- Underflow occurs when a calculation produces a value smaller than the minimum value (closest to zero, or negative for signed types) that can be stored in the assigned data type.
-- In case of overflow/underflow, the compiler doesnot throw any error during compilation process.
-- Java handles integer overflow and underflow by "wrapping around" the values. e.g., adding 1 to Integer.MAX_VALUE results in Integer.MIN_VALUE. For floating-point numbers, underflow can result in 0.0, while overflow can result in Infinity or -Infinity.
-- Java's default behavior for arithmetic overflow and underflow does not involve throwing exceptions, which can make it challenging to detect and debug these issues.
 - However, when assigning a literal number value to a datatype that is outside of the range, the compiler will give an error.
 
 ```java
