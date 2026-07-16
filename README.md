@@ -56,6 +56,8 @@ There are eight primitive data types:
 - __Character Type:__ char - is a single 16-bit Unicode character with the size of 2 bytes (16 bits). Unicode range (0 to 65535).
 - __Boolean Type:__ boolean: Typically 1 byte (actual size can vary depending on JVM). Stores true or false.
 
+**Overflow and Underflow in Java:** overflow and underflow (observed in Integer/Floating-point datatypes) refer to runtime conditions where the result of an arithmetic operation exceeds the maximum (Overflow) or falls below the minimum value (Underflow), which is out of range of the declared data type. Java compiler does not throw an exception/error when overflow/underflow occurs, since it performs **integer-wraparound:** when an arithmetic operation exceeds the maximum or minimum limit of a type, it silently rolls over to the opposite extreme without throwing an error. For float/double, exceeding the top limit pushes the exponent out to range, defaulting to (+/-) `Infinity` and shrinking past the smallest possible fraction rounds it down to `0.0`. However, when assigning a literal number value to a datatype that is outside of the range, the compiler will give an error.
+
 **Why Java has char size as 2 bytes:** Unlike languages such as C/C++ that use the _ASCII character set_ (7-bit code), Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages, including Latin, Greek, Cyrillic, Chinese, Arabic, etc. As a result, Java uses 2 bytes to store a char, ensuring it can represent any Unicode character.
 
 **In Java, a `char` variable can be assigned a value in several ways:** 
@@ -77,6 +79,7 @@ In Java, the **`L` (or l) suffix is required when assigning a literal integer va
 long longIntegerNum = 2147483648; // Error: The literal 2147483648 of type int is out of range 
 long longIntegerNumL = 2147483648L; // Works fine
 ```
+__Memory Allocation/Efficiency for Primitives:__  Local primitive variables are typically stored on the stack memory. If a primitive variable is a field within an object, its value is stored directly within the object's memory on the heap. They are generally more memory-efficient and offer faster access because their values are stored directly.
 
 ### **Wrapper classes in Java** 
 
@@ -90,29 +93,6 @@ On object data we can call multiple methods compareTo(), equals(), toString()
 The cloning process only works on objects
 Object data allows null values.
 Serialization allows only object data.
-
-**Overflow and Underflow in Java:** overflow and underflow (observed in Integer/Floating-point datatypes) refer to runtime conditions where the result of an arithmetic operation exceeds the maximum (Overflow) or falls below the minimum value (Underflow), which is out of range of the declared data type. Java compiler does not throw an exception/error when overflow/underflow occurs, since it performs **integer-wraparound:** when an arithmetic operation exceeds the maximum or minimum limit of a type, it silently rolls over to the opposite extreme without throwing an error.
-
-- However, when assigning a literal number value to a datatype that is outside of the range, the compiler will give an error.
-
-```java
-int maxInt = Integer.MAX_VALUE; // 2147483647
-int overflowResult = maxInt + 1; // Result will be -2147483648 (Integer.MIN_VALUE)
-
-int minInt = Integer.MIN_VALUE; // -2147483648
-int underflowResult = minInt - 1; // Result will be 2147483647 (Integer.MAX_VALUE)
-
-int num1 = Integer.MAX_VALUE + 1; // Code compiles
-int num2 = 2147483648; // Error: The literal 2147483648 of type int is out of range
-
-float largeFloat = Float.MAX_VALUE;
-float overflowFloat = largeFloat * 2; // Result will be Infinity
-
-float smallFloat = Float.MIN_VALUE; // Smallest positive non-zero value
-float underflowFloat = smallFloat / 2; // Result will be 0.0f
-```
-
-__Memory Allocation/Efficiency for Primitives:__  Local primitive variables are typically stored on the stack memory. If a primitive variable is a field within an object, its value is stored directly within the object's memory on the heap. They are generally more memory-efficient and offer faster access because their values are stored directly.
 
 ### **Non-Primitive (Reference) Data Types**
 
