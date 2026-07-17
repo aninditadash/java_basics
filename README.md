@@ -321,10 +321,11 @@ In Java Polymorphism is mainly divided into two types:
 __Method Overloading:__ where more than one method share the same name with different signature(Parameters) in a class. 
 
 - Difference in parameters may include number of parameters, datatype of parameters and their order.
-- The return type of these methods may or may not be same.
+- The return type of these methods may or may not be same. So, having 2 methods with same name and parameters list but different return type will be illegal with compilation error.
 - It reduces duplicate code.
-- We can overload static or instance methods.
+- We can overload static or instance methods. But, we cannot have an instance and a static method with same name with different parameters.
 - Methods can be overloaded by subclasses. Its because a subclass inherits one version of the method from the parent class, and then the subclass can have another overloaded version of that method.
+- Overloaded methods with same name but different parameter list can use different visibility settings (e.g. one can be public another private).
 
 __Method Overriding:__ where method in the child class has the same name, return-type and parameters as in parent class. 
 
