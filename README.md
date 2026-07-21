@@ -1,3 +1,15 @@
+Claude (Anthropic Academy — all free at anthropic.skilljar.com)
+1. Required — Claude 101  https://anthropic.skilljar.com/claude-101
+2. Required — AI Fluency: Framework & Foundations AI Fluency: Framework & Foundations
+3. Recommended — Prompt Engineering (docs, not a Skilljar course) Prompt engineering overview
+4. Recommended — Claude Code in Action Claude Code in Action
+ 
+Google Gemini (Google Cloud Skills Boost — free with Google account)
+5. Required — Introduction to Gemini for Google Workspace Introduction to Google Workspace with Gemini | Google Skills
+6. Required — Responsible AI for Developers: Fairness & Bias Responsible AI for Developers: Fairness & Bias | Google Skills
+7. Recommended — Prompt Design in Vertex AI Prompt Design in Agent Platform | Google Skills
+8. Recommended — Gemini for Google Cloud (role-specific learning path)Sign in | Google Skills
+
 # Introduction to Java
 
 Java is a high-level, object-oriented programming language used to build web apps, mobile applications, and enterprise software systems. It is platform-independent, which means we can write code once and run it anywhere using the Java Virtual Machine (JVM) (**Write Once, Run Anywhere**). It is one of the most popular and widely used programming language and platform. A platform is an environment that helps to develop and run programs written in any programming language. 
