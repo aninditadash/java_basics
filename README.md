@@ -205,7 +205,7 @@ There are three types of constructors in Java:
 - __Parameterized Constructor:__ A constructor that has parameters.
 - __Copy Constructor:__ Unlike other constructors copy constructor is passed with another object which copies the data available from the passed object to the newly created object.
 
-__Constructor Overloading:__ In Java, overloaded constructor is called based on the parameters specified when a "new" keyword is executed, as we can initialize an object in different ways. `this()` reference can be used during constructor overloading to call the different constructors implicitly from the parameterized constructor. Constructor calling must be the first statement of the constructor in Java.
+__Constructor Overloading:__ In Java, overloaded constructor is called based on the parameters specified when a "new" keyword is executed, as we can initialize an object in different ways. `this()` keyword can be used during constructor overloading to make one constructor call another within the same class: constructor chaining. Constructor calling must be the first statement of the constructor in Java.
 
 ### **Access Modifiers**
 
