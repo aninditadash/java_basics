@@ -6,37 +6,6 @@ Java is a high-level, object-oriented programming language used to build web app
 
 Java programming environment consists of three components mainly: __JDK__, __JRE__, __JVM__.
 
-
-
-## **Variables and Methods in Java**
-
-### **Instance Variables**
-
-- non-static variables and are declared in a class outside of any method, constructor, or block. 
-- Created when an object of the class is created and destroyed when the object is destroyed (same for static variables). 
-- Initialization of an instance variable is not mandatory. Its default value is dependent on the data type of variable.
-- For String it is null, for float it is 0.0f, for int it is 0, for Wrapper classes like Integer it is null, etc.
-- Scope of instance variables are throughout the class except the static contexts.
-- accessed only by creating objects, and can be initialized using constructors while creating an object.
-- Instance blocks can be used to initialize instance variables.
-
-### **Static Variables**
-
-- class variables and are declared similarly to instance variables, but declared using static keyword.
-- We can only have one copy of a static variable per class.
-- Initialization of a static variable is similar to instance variables.
-- When accessing a static variable through an object, compiler will show a warning message, but will replace the object name with the class name automatically.
-- Static variables cannot be declared locally inside an instance method.
-- Static blocks can be used to initialize static variables.
-
-### **Method Call Stack in Java**
-
-Java is an object-oriented and stack-based programming language where methods play a key role in controlling the program's execution flow. When a method is called, Java uses an internal structure known as the call stack to manage execution, variables, and return addresses. _Call stack_ is a data structure used during runtime to manage method calls and local variables. It operates in a _Last-In-First-Out(LIFO)_ manner, meaning the last method called is the first one to complete and exit. Java automatically manages the call stack using the JVM. When a method is called:
-
-- A new stack frame is added to the call stack to store method details.
-- The method runs its code.
-- After execution, the stack frame is removed, and control goes back to the calling method.
-
 ## **Datatypes in Java**
 
 Java is statically typed programming language which means variable types are known at the compile time. A language is __statically typed__ if the type of a variable is known at compile time. So, the variable's data type is checked at compile time (before the program runs) rather than at runtime (when the program is executing). This allows compilers to catch type-related errors early on, potentially preventing runtime crashes and improving code reliability.
@@ -154,6 +123,34 @@ Records are immutable by default. This means that once a record object is create
 
 https://www.geeksforgeeks.org/java/what-are-java-records-and-how-to-use-them-alongside-constructors-and-methods/
 
+## **Variables and Methods in Java**
+
+### **Instance Variables**
+
+- non-static variables and are declared in a class outside of any method, constructor, or block. 
+- Created when an object of the class is created and destroyed when the object is destroyed (same for static variables). 
+- Initialization of an instance variable is not mandatory. Its default value is dependent on the data type of variable.
+- For String it is null, for float it is 0.0f, for int it is 0, for Wrapper classes like Integer it is null, etc.
+- Scope of instance variables are throughout the class except the static contexts.
+- accessed only by creating objects, and can be initialized using constructors while creating an object.
+- Instance blocks can be used to initialize instance variables.
+
+### **Static Variables**
+
+- class variables and are declared similarly to instance variables, but declared using static keyword.
+- We can only have one copy of a static variable per class.
+- Initialization of a static variable is similar to instance variables.
+- When accessing a static variable through an object, compiler will show a warning message, but will replace the object name with the class name automatically.
+- Static variables cannot be declared locally inside an instance method.
+- Static blocks can be used to initialize static variables.
+
+### **Method Call Stack in Java**
+
+Java is an object-oriented and stack-based programming language where methods play a key role in controlling the program's execution flow. When a method is called, Java uses an internal structure known as the call stack to manage execution, variables, and return addresses. _Call stack_ is a data structure used during runtime to manage method calls and local variables. It operates in a _Last-In-First-Out(LIFO)_ manner, meaning the last method called is the first one to complete and exit. Java automatically manages the call stack using the JVM. When a method is called:
+
+- A new stack frame is added to the call stack to store method details.
+- The method runs its code.
+- After execution, the stack frame is removed, and control goes back to the calling method.
 
 ## **OOP(Object Oriented Programming) in Java**
 
