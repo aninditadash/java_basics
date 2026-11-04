@@ -2,13 +2,9 @@
 
 Java is a high-level, object-oriented programming language used to build web apps, mobile applications, and enterprise software systems. It is platform-independent, which means we can write code once and run it anywhere using the Java Virtual Machine (JVM) (**Write Once, Run Anywhere**). It is one of the most popular and widely used programming language and platform. A platform is an environment where we can develop and run programs written in any programming language. 
 
-## **Table of contents**
-
-
 ## **Java Environment** 
 
 Java programming environment consists of three components mainly: __JDK__, __JRE__, __JVM__.
-
 
 
 
@@ -51,7 +47,7 @@ They store only single values and have no additional capabilities. They have a f
 
 There are eight primitive data types:
 
-- __Integer Types:__ byte: 1 byte (8 bits), short: 2 bytes (16 bits), int: 4 bytes (32 bits) - Default for integer values, long: 8 bytes (64 bits).
+- __Integer Types:__ `byte`: 1 byte (8 bits), `short`: 2 bytes (16 bits), `int`: 4 bytes (32 bits) - Default for integer values, `long`: 8 bytes (64 bits).
 - __Floating-Point Types:__ float: 4 bytes (32 bits) - Single-precision, double: 8 bytes (64 bits) - Double-precision, default for decimal values. _Precision refers to the format and amount of space occupied by the relevant type._ Should not be used for precise and accurate calculations. (use BigDecimal)
 - __Character Type:__ char - is a single 16-bit Unicode character with the size of 2 bytes (16 bits). Unicode range (0 to 65535).
 - __Boolean Type:__ boolean: Typically 1 byte (actual size can vary depending on JVM). Stores true or false.
@@ -63,7 +59,7 @@ There are eight primitive data types:
 **In Java, a `char` variable can be assigned a value in several ways:** 
 
 - Using a character literal.
-- Using an integer literal representing a Unicode value: char takes 2 bytes (16-bit UTF encoding ), while int takes 4 bytes (32-bit). Here, we need to typecast the int to get converted to a char. Every character has its own unique code called a Unicode value, which is represented by a numeric value. Here, we convert the numerical value to its equivalent ASCII representation.
+- Using an integer literal representing a _Unicode_ value: char takes 2 bytes (16-bit UTF encoding ), while int takes 4 bytes (32-bit). Here, we need to typecast the int to get converted to a char. Every character has its own unique code called a Unicode value, which is represented by a numeric value. Here, we convert the numerical value to its equivalent ASCII representation.
 - Using a Unicode escape sequence: we can directly specify the Unicode value using a `\u` escape sequence followed by four hexadecimal digits.
 
 ```java
