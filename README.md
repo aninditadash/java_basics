@@ -1,6 +1,6 @@
 # Introduction to Java
 
-Java is a high-level, object-oriented programming language used to build web apps, mobile applications, and enterprise software systems. It is platform-independent, which means we can write code once and run it anywhere using the Java Virtual Machine (JVM) (**Write Once, Run Anywhere**). It is one of the most popular and widely used programming language and platform. A platform is an environment where we can develop and run programs written in any programming language. 
+Java is a high-level, object-oriented programming language used to build web apps, mobile applications, and enterprise software systems. It is platform-independent, which means we can write code once and run it anywhere using the Java Virtual Machine (JVM) (**Write Once, Run Anywhere**). Widely used programming language and platform. A platform is an environment where we can develop and run programs written in any programming language. 
 
 ## **Java Environment** 
 
@@ -8,20 +8,20 @@ Java programming environment consists of three components mainly: __JDK__, __JRE
 
 ## **Datatypes in Java**
 
-Java is statically typed programming language which means variable types are known at the compile time. A language is __statically typed__ if the type of a variable is known at compile time. So, the variable's data type is checked at compile time (before the program runs) rather than at runtime (when the program is executing). This allows compilers to catch type-related errors early on, potentially preventing runtime crashes and improving code reliability.
+Java is statically typed where variable types are known at compile time, which allows compilers to catch type-related errors early on, potentially preventing runtime crashes and improving code reliability.
 
-### **Primitive Data Types**
+**Primitive Data Types:** Stores only single values, have fixed size and are stored in stack memory. Eight primitive data types:
 
-They store only single values and have no additional capabilities. They have a fixed size and are stored in the stack memory.
+- Integer Types: `byte`: 1 byte (8 bits), `short`: 2 bytes (16 bits), `int`: 4 bytes (32 bits) (default), `long`: 8 bytes (64 bits).
+- Floating-Point Types: `float`: 4 bytes (32 bits) - Single-precision, `double`: 8 bytes (64 bits) - Double-precision (default). _Precision refers to the format and amount of space occupied by the relevant type._ Should not be used for precise and accurate calculations. (use BigDecimal)
+- Character Type: `char` - single 16-bit Unicode character with the size of 2 bytes (16 bits). Unicode range (0 to 65535).
+- Boolean Type: `boolean` - typically 1 byte (actual size can vary depending on JVM). Stores true or false.
 
-There are eight primitive data types:
+**Overflow and Underflow in Java:** Refers to runtime conditions which occur when an arithmetic operation generates a value that falls outside the permissible boundaries of a primitive data type. Java does not throw exceptions or crash when this happens to primitive numbers since it performs _integer-wraparound_. For Integers, when you exceed the upper limit, the value wraps around to the lowest negative number and vice versa. Floating-point numbers do not wrap around, if value becomes too large (positive or negative), it converts to Infinity or -Infinity and when a number gets too low, it rounds down to 0.0.
 
-- __Integer Types:__ `byte`: 1 byte (8 bits), `short`: 2 bytes (16 bits), `int`: 4 bytes (32 bits) - Default for integer values, `long`: 8 bytes (64 bits).
-- __Floating-Point Types:__ float: 4 bytes (32 bits) - Single-precision, double: 8 bytes (64 bits) - Double-precision, default for decimal values. _Precision refers to the format and amount of space occupied by the relevant type._ Should not be used for precise and accurate calculations. (use BigDecimal)
-- __Character Type:__ char - is a single 16-bit Unicode character with the size of 2 bytes (16 bits). Unicode range (0 to 65535).
-- __Boolean Type:__ boolean: Typically 1 byte (actual size can vary depending on JVM). Stores true or false.
+**Type casting in Java:** process of converting a value from one data type into another. Primitive Casting (for numeric and character types) and Reference/Object Casting (for classes that share an inheritance relationship).
 
-**Overflow and Underflow in Java:** overflow and underflow (observed in Integer/Floating-point datatypes) refer to runtime conditions where the result of an arithmetic operation exceeds the maximum (Overflow) or falls below the minimum value (Underflow), which is out of range of the declared data type. Java compiler does not throw an exception/error when overflow/underflow occurs, since it performs **integer-wraparound:** when an arithmetic operation exceeds the maximum or minimum limit of a type, it silently rolls over to the opposite extreme without throwing an error. For float/double, exceeding the top limit pushes the exponent out to range, defaulting to (+/-) `Infinity` and shrinking past the smallest possible fraction rounds it down to `0.0`. However, when assigning a literal number value to a datatype that is outside of the range will lead to compile-time error. Java 8 added methods like `Math.addExact()` which throw exceptions when overflow/underflow happens.
+Primitive Type Casting: byte -> short -> char -> int -> long -> float -> double. Widening (Implicit casting): Smaller to larger size performed by compiler and no data (int -> double). Narrowing (Explicit casting): Larger to smaller size, done by adding datatype and data loss (double -> int).
 
 **Why Java has char size as 2 bytes:** Unlike languages such as C/C++ that use the _ASCII character set_ (7-bit code), Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages, including Latin, Greek, Cyrillic, Chinese, Arabic, etc. As a result, Java uses 2 bytes to store a char, ensuring it can represent any Unicode character.
 
