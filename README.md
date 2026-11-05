@@ -21,7 +21,9 @@ Java is statically typed where variable types are known at compile time, which a
 
 **Type casting in Java:** process of converting a value from one data type into another. Primitive Casting (for numeric and character types) and Reference/Object Casting (for classes that share an inheritance relationship).
 
-Primitive Type Casting: byte -> short -> char -> int -> long -> float -> double. Widening (Implicit casting): Smaller to larger size performed by compiler and no data (int -> double). Narrowing (Explicit casting): Larger to smaller size, done by adding datatype and data loss (double -> int).
+Primitive Type Casting: `byte -> short -> char -> int -> long -> float -> double`. Widening (Implicit casting): Smaller to larger size performed by compiler and no data (int -> double). Narrowing (Explicit casting): Larger to smaller size, done by adding datatype and data loss (double -> int).
+
+Reference (Object) Casting: 
 
 **Why Java has char size as 2 bytes:** Unlike languages such as C/C++ that use the _ASCII character set_ (7-bit code), Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages, including Latin, Greek, Cyrillic, Chinese, Arabic, etc. As a result, Java uses 2 bytes to store a char, ensuring it can represent any Unicode character.
 
@@ -44,6 +46,7 @@ In Java, the **`L` (or l) suffix is required when assigning a literal integer va
 long longIntegerNum = 2147483648; // Error: The literal 2147483648 of type int is out of range 
 long longIntegerNumL = 2147483648L; // Works fine
 ```
+
 __Memory Allocation/Efficiency for Primitives:__  Local primitive variables are typically stored on the stack memory. If a primitive variable is a field within an object, its value is stored directly within the object's memory on the heap. They are generally more memory-efficient and offer faster access because their values are stored directly.
 
 ### **Wrapper classes in Java** 
@@ -71,22 +74,20 @@ These data types do not directly store values but instead store references (memo
 
 __Memory Allocation for Non-Primitives:__ Objects (instances of non-primitive types) and their data are stored on the heap memory. Variables of non-primitive types store references (memory locations) to these objects. References to these objects (i.e. the local variables referencing these objects) are stored in the stack memory. 
 
-## **Strings in Java**
+### **Strings in Java**
 
-In Java strings, every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Two ways to create a string in Java: using string literal, using new keyword.
+In Java, a string is an object that represents a sequence of characters, every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Two ways to create a string: using string literal and using new keyword. Strings are immutable means their values cannot be changed once they are created, so updating the string does not modify the original one, it creates a new string object instead.
 
-- Strings are immutable means their values cannot be changed once they are created.
-- If we try to change a string, Java does not modify the original one, it creates a new string object instead.
-- __Security:__ Strings are frequently used to store sensitive data like passwords, usernames, and file paths. Immutability ensures that once these values are set, they cannot be accidentally or maliciously altered by other parts of the program, enhancing security.
-- __Thread Safety:__ In a multi-threaded environment, mutable objects can lead to race conditions and data corruption if multiple threads try to modify them concurrently without proper synchronization. Since String objects are immutable, they are inherently thread-safe and can be shared across threads without requiring explicit synchronization mechanisms.
+```java
+String str1 = "Hello";
+String str2 = new String("Hello");
+```
+Java checks the String Constant Pool (a special memory region inside the heap). If the string "Hello" already exists, str1 reuses the existing instance. If it does not exist, Java creates a new one in the pool. Using new keyword forces Java to bypass the pool check and always create a brand-new object in the normal heap memory, even if "Hello" already exists in the pool.
 
-### **How Strings are Stored in Java Memory**
+Strings are frequently used to store sensitive data like passwords, usernames, and file paths, so immutability ensures that once these values are set, they cannot be accidentally or maliciously altered by other parts of the program, enhancing security. In a multi-threaded environment, mutable objects can lead to race conditions and data corruption if multiple threads try to modify them concurrently without proper synchronization. Since String objects are immutable, they are inherently thread-safe and can be shared across threads without requiring explicit synchronization mechanisms.
+When a thread tries to "update" the value of a string, the thread does not actually modify the original object; instead, it creates an entirely new String object in memory, and other threads looking at it will see no change at all. Mutable Alternatives are StringBuilder and StringBuffer. StringBuilder used for single-threaded tasks because it is faster and not synchronized. StringBuffer is safe for multi-threaded applications because its methods are synchronized.
 
-- __Using string literal:__ When a string literal is encountered, the JVM first checks if an identical string already exists in the string constant pool. If it does, a reference to that existing object is returned, else a new String object is created in the pool, and a reference to it is returned. Promotes memory efficiency. 
-- __Using the new keyword:__ This method explicitly creates a new String object in the heap memory, regardless of whether an identical string exists in the String Constant Pool.
-- _String constant pool_ is present in the heap.
-
-### **String Methods**
+#### **String Methods**
 
 Three basic categories of String methods: 
 
@@ -104,18 +105,6 @@ System.out.println(str.isBlank()); // true
 ```
 
 __Confusing == and .equals() for Strings:__ `==` is used to compare object references, while `.equals()` is used to compare the content of the strings.
-
-## **StringBuilder and StringBuffer classes in Java**
-
-### **Java StringBuilder Class**
-
-The StringBuilder class is a part of the _java.lang_ package that provides a mutable sequence of characters. Unlike String (which is immutable), StringBuilder allows in-place modifications, making it memory-efficient and faster for frequent string operations.
-
-- StringBuilder in Java represents a mutable sequence of characters.
-- String Class in Java creates an immutable sequence of characters, whereas StringBuilder creates a mutable sequence of characters, offering an alternative.
-- Functionality of StringBuilder is similar to the StringBuffer class, as both provide mutable sequences of characters.
-- StringBuilder does not guarantee synchronization, while StringBuffer does. It is a high-performance, low-overhead and non-thread-safe alternative to StringBuffer, suitable for single-threaded applications, while StringBuffer is used for synchronization in multithreaded applications.
-- StringBuilder is faster than StringBuffer in most implementations.
 
 ### **Java Records vs POJOs**
 
