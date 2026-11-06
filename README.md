@@ -2,9 +2,9 @@
 
 Java is a high-level, object-oriented programming language used to build web apps, mobile applications, and enterprise software systems. It is platform-independent, which means we can write code once and run it anywhere using the Java Virtual Machine (JVM) (**Write Once, Run Anywhere**). Widely used programming language and platform. A platform is an environment where we can develop and run programs written in any programming language. 
 
-## **Java Environment** 
+## **Java Development Environment** 
 
-Java programming environment consists of three components mainly: __JDK__, __JRE__, __JVM__.
+Java Development Environment is required to compile and run Java programs on a system. It involves installing the JDK and configuring environment variables like PATH and JAVA_HOME so the system can access Java tools properly.
 
 ## **Datatypes in Java**
 
