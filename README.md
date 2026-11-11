@@ -113,28 +113,27 @@ Records are immutable by default. This means that once a record object is create
 
 https://www.geeksforgeeks.org/java/what-are-java-records-and-how-to-use-them-alongside-constructors-and-methods/
 
-## **Variables and Methods in Java**
+## **OOP(Object Oriented Programming) in Java**
 
-### **Instance Variables**
+Object-Oriented Programming (OOPs) is a programming approach that organizes code into classes and objects and makes it more structured and easy to manage. The core idea of OOPs is to bind data and the functions that operate on it, preventing unauthorized access from other parts of the code. A class is a blueprint that defines properties and behaviors, while an object is an instance of a class representing real-world entities.
+In Java, the `Object` class, found within the `java.lang` package, is the root of the entire class hierarchy (`java.lang.Object`). 
 
-- non-static variables and are declared in a class outside of any method, constructor, or block. 
-- Created when an object of the class is created and destroyed when the object is destroyed (same for static variables). 
-- Initialization of an instance variable is not mandatory. Its default value is dependent on the data type of variable.
-- For String it is null, for float it is 0.0f, for int it is 0, for Wrapper classes like Integer it is null, etc.
-- Scope of instance variables are throughout the class except the static contexts.
-- accessed only by creating objects, and can be initialized using constructors while creating an object.
-- Instance blocks can be used to initialize instance variables.
+### **Variables and Methods in Java**
 
-### **Static Variables**
+**Instance Variables:** non-static variables and are declared in a class outside of any method, constructor, or block.  Created when a class object is created and destroyed when the object is destroyed (same for static variables). Initialization not mandatory and default value is assigned.
+(e.g. String/Wrapper classes - null, float - 0.0f, etc.), for  it is 0.0f, for int it is 0, for Wrapper classes like Integer it is null, etc. Scope of instance variables are throughout the class except the static contexts. Can be initialised through constructors/instance blocks.
 
-- class variables and are declared similarly to instance variables, but declared using static keyword.
-- We can only have one copy of a static variable per class.
+**Static Variables:** class variables declared using static keyword and only one copy of static variable per class.
 - Initialization of a static variable is similar to instance variables.
 - When accessing a static variable through an object, compiler will show a warning message, but will replace the object name with the class name automatically.
 - Static variables cannot be declared locally inside an instance method.
 - Static blocks can be used to initialize static variables.
 
-### **Method Call Stack in Java**
+**Method Signature in Java:** 
+
+**`main` method in Java:** `main()` method has `public` and `static` modifiers. `public` modifier facilitates access to the method from any part of the application else it will not be accessible to JVM. Declaring as `static` is essential because `main()` acts as the entry point of the application, initiated by the JVM when a class is executed and since JVM does not have the capability to create an object/instance of the class, it can call the method using the class name.
+
+**Method Call Stack in Java:**
 
 Java is an object-oriented and stack-based programming language where methods play a key role in controlling the program's execution flow. When a method is called, Java uses an internal structure known as the call stack to manage execution, variables, and return addresses. _Call stack_ is a data structure used during runtime to manage method calls and local variables. It operates in a _Last-In-First-Out(LIFO)_ manner, meaning the last method called is the first one to complete and exit. Java automatically manages the call stack using the JVM. When a method is called:
 
@@ -142,10 +141,7 @@ Java is an object-oriented and stack-based programming language where methods pl
 - The method runs its code.
 - After execution, the stack frame is removed, and control goes back to the calling method.
 
-## **OOP(Object Oriented Programming) in Java**
-
-Object-Oriented Programming (OOPs) is a programming approach that organizes code into classes and objects and makes it more structured and easy to manage. The core idea of OOPs is to bind data and the functions that operate on it, preventing unauthorized access from other parts of the code. A class is a blueprint that defines properties and behaviors, while an object is an instance of a class representing real-world entities.
-In Java, the `Object` class, found within the `java.lang` package, is the root of the entire class hierarchy (`java.lang.Object`). 
+---
 
 ### **Classes and Objects**
 
@@ -171,13 +167,13 @@ __Anonymous Objects in Java:__ are objects that are instantiated without storing
 - Created & used instantly: Saves memory for short-lived tasks.
 - Common in event handling (e.g., button clicks).
 
-### **Constructors in Java**
+**Constructors in Java:** Constructors (code block) help in object creation, which is invoked by JVM when an object is created and its purpose is to initialize the object's state by assigning values to the declared properties and allocating memory. This process happens automatically when we use the "new" keyword to create an object. Has same name as the class and do not have any return type. When an object of a class is created if no explicit constructors are present, a default/no-agrs constructor is called automatically by JVM. Access level of the default constructor (generated by JVM) will be same as the class' access level.
 
-Constructors play an important role in object creation. A constructor is a special block of code that is called when an object is created. Its main job is to initialize the object, to set up its internal state, or to assign default values to its attributes. This process happens automatically when we use the "new" keyword to create an object.
+A constructor is a special block of code that is called when an object is created. Its main job is to initialize the object, to set up its internal state, or to assign default values to its attributes. This process happens automatically when we use the "new" keyword to create an object.
 
-- A constructor has the same name as the class in which it is defined.
-- Constructors do not have any return type, not even void.
-- When an object of a class is created, the constructor is called automatically to initialize the object’s attributes.
+- A constructor  in which it is defined.
+- Constructors , not even void.
+-  We can a
 - Not necessary to write a constructor for a class as the Java compiler creates a default constructor if not explicitly added.
 - A constructor in Java can not be abstract, final, static, or Synchronized.
 - Access modifiers can be used in constructor declaration to control its access i.e which other class can call the constructor.
@@ -287,7 +283,7 @@ Inheritance is an important pillar of OOP. It is the mechanism in Java by which 
 
 ## **Polymorphism**
 
-Polymorphism in Java is one of the core concepts in OOPs that allows objects to behave differently based on their specific class type. This means one entity can take many forms. In Java, polymorphism allows the same method or object to behave differently based on the context, specially on the object's actual runtime class. 
+Polymorphism allows objects to behave differently based on their specific class type. This means one entity can take many forms. In Java, polymorphism allows the same method or object to behave differently based on the context, specially on the object's actual runtime class. 
 
 - __Multiple Behaviors:__ The same method can behave differently depending on the object that calls this method.
 - __Method Overriding:__ A child class can redefine a method of its parent class.
