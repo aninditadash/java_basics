@@ -120,18 +120,13 @@ In Java, the `Object` class, found within the `java.lang` package, is the root o
 
 ### **Variables and Methods in Java**
 
-**Instance Variables:** non-static variables and are declared in a class outside of any method, constructor, or block.  Created when a class object is created and destroyed when the object is destroyed (same for static variables). Initialization not mandatory and default value is assigned.
-(e.g. String/Wrapper classes - null, float - 0.0f, etc.), for  it is 0.0f, for int it is 0, for Wrapper classes like Integer it is null, etc. Scope of instance variables are throughout the class except the static contexts. Can be initialised through constructors/instance blocks.
+**Instance Variables:** non-static variables and are declared in a class outside of any method, constructor, or block. Created when a class object is created and destroyed when the object is destroyed (same for static variables). Initialization not mandatory and default value is assigned (e.g. String/Wrapper classes - null, float - 0.0f, etc) (same for static variables). Scope of instance variables are throughout the class except the static contexts. Can be initialised through constructors/instance blocks.
 
-**Static Variables:** class variables declared using static keyword and only one copy of static variable per class.
-- Initialization of a static variable is similar to instance variables.
-- When accessing a static variable through an object, compiler will show a warning message, but will replace the object name with the class name automatically.
-- Static variables cannot be declared locally inside an instance method.
-- Static blocks can be used to initialize static variables.
+**Static Variables:** class variables declared using static keyword and only one copy of static variable is available per class. When accessing a static variable through an object, compiler will show a warning message, but will replace the object name with the class name automatically. Static variables cannot be declared locally inside an instance method. Static blocks can be used to initialize static variables.
 
 **Method Signature in Java:** 
 
-**`main` method in Java:** `main()` method has `public` and `static` modifiers. `public` modifier facilitates access to the method from any part of the application else it will not be accessible to JVM. Declaring as `static` is essential because `main()` acts as the entry point of the application, initiated by the JVM when a class is executed and since JVM does not have the capability to create an object/instance of the class, it can call the method using the class name.
+**`main` method in Java:** `main()` method has `public` and `static` modifiers and acts as the entry point of the application. `public` modifier facilitates access to the method from any part of the application else it will not be accessible to JVM. Creating and managing objects is one of the primary functions of JVM. Declaring it as `static` lets JVM invoke it directly using `ClassName.main()` without needing to instantiate the class first.
 
 **Method Call Stack in Java:**
 
