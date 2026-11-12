@@ -115,20 +115,17 @@ https://www.geeksforgeeks.org/java/what-are-java-records-and-how-to-use-them-alo
 
 ## **OOP(Object Oriented Programming) in Java**
 
-Object-Oriented Programming (OOPs) is a programming approach that organizes code into classes and objects and makes it more structured and easy to manage. The core idea of OOPs is to bind data and the functions that operate on it, preventing unauthorized access from other parts of the code. A class is a blueprint that defines properties and behaviors, while an object is an instance of a class representing real-world entities.
-In Java, the `Object` class, found within the `java.lang` package, is the root of the entire class hierarchy (`java.lang.Object`). 
-
-### **Variables and Methods in Java**
+Object-Oriented Programming (OOPs) is a programming approach that organizes code into classes and objects and makes it more structured and easy to manage. The core idea of OOPs is to bind data and the functions that operate on it, preventing unauthorized access from other parts of the code. A class is a blueprint that defines properties and behaviors, while an object is an instance of a class representing real-world entities. In Java, the `Object` class, found within the `java.lang` package, is the root of the entire class hierarchy (`java.lang.Object`). 
 
 **Instance Variables:** non-static variables and are declared in a class outside of any method, constructor, or block. Created when a class object is created and destroyed when the object is destroyed (same for static variables). Initialization not mandatory and default value is assigned (e.g. String/Wrapper classes - null, float - 0.0f, etc) (same for static variables). Scope of instance variables are throughout the class except the static contexts. Can be initialised through constructors/instance blocks.
 
 **Static Variables:** class variables declared using static keyword and only one copy of static variable is available per class. When accessing a static variable through an object, compiler will show a warning message, but will replace the object name with the class name automatically. Static variables cannot be declared locally inside an instance method. Static blocks can be used to initialize static variables.
 
-**Method Signature in Java:** 
+**Method Signature:** 
 
 **`main` method in Java:** `main()` method has `public` and `static` modifiers and acts as the entry point of the application. `public` modifier facilitates access to the method from any part of the application else it will not be accessible to JVM. Creating and managing objects is one of the primary functions of JVM. Declaring it as `static` lets JVM invoke it directly using `ClassName.main()` without needing to instantiate the class first.
 
-**Method Call Stack in Java:**
+**Java method call stack:**
 
 Java is an object-oriented and stack-based programming language where methods play a key role in controlling the program's execution flow. When a method is called, Java uses an internal structure known as the call stack to manage execution, variables, and return addresses. _Call stack_ is a data structure used during runtime to manage method calls and local variables. It operates in a _Last-In-First-Out(LIFO)_ manner, meaning the last method called is the first one to complete and exit. Java automatically manages the call stack using the JVM. When a method is called:
 
@@ -138,9 +135,7 @@ Java is an object-oriented and stack-based programming language where methods pl
 
 ---
 
-### **Classes and Objects**
-
-A __Class__ is a user-defined blueprint or prototype from which objects are created. It represents the set of properties or methods that are common to all objects of one type. Components of Java classes:
+**Classes and Objects:** __Class__ is a user-defined blueprint or prototype from which objects are created. It represents the set of properties or methods that are common to all objects of one type. Components of Java classes:
 
 - __Access Modifiers:__ used to control the visibility of the variables, classes, and methods within a class or package.
 - __Superclass (if any):__ name of the superclass, using keyword `extends`. _A class can only extend (subclass) one parent._
@@ -179,7 +174,7 @@ There are three types of constructors in Java:
 - __Parameterized Constructor:__ A constructor that has parameters.
 - __Copy Constructor:__ Unlike other constructors copy constructor is passed with another object which copies the data available from the passed object to the newly created object.
 
-__Constructor Overloading:__ In Java, overloaded constructor is called based on the parameters specified when a "new" keyword is executed, as we can initialize an object in different ways. `this()` keyword can be used during constructor overloading to make one constructor call another within the same class: constructor chaining. Constructor calling must be the first statement of the constructor in Java.
+__Constructor Overloading and Chaining:__ In Java, overloaded constructor is called based on the parameters specified when a "new" keyword is executed, as we can initialize an object in different ways. `this()` keyword can be used during constructor overloading to make one constructor call another within the same class: constructor chaining. Constructor calling must be the first statement of the constructor in Java.
 
 ### **Access Modifiers**
 
