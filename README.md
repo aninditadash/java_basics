@@ -13,15 +13,15 @@ Java is statically typed where variable types are known at compile time, which a
 - Character Type: `char` - single 16-bit Unicode character with the size of 2 bytes (16 bits). Unicode range (0 to 65535).
 - Boolean Type: `boolean` - typically 1 byte (actual size can vary depending on JVM). Stores true or false.
 
+**Why Java char size is 2 bytes:** Unlike languages such as C/C++ that use the _ASCII character set_ (7-bit code), Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages. As a result, Java uses char size of 2 bytes to represent any Unicode character.
+
 **Overflow and Underflow in Java:** Refers to runtime conditions which occur when result of an arithmetic operation falls outside the permissible boundaries of a primitive data type. Java does not throw exceptions or crash when this happens to primitive numbers since it performs _integer-wraparound_. For Integers, when you exceed the upper limit, the value wraps around to the lowest negative number and vice versa. Floating-point numbers do not wrap around, if value becomes too large (positive or negative), it converts to Infinity or -Infinity and when a number gets too low, it rounds down to 0.0.
 
 **Type casting in Java:** Process of converting a value from one datatype into another. Primitive Casting (for numeric and character types) and Reference/Object Casting (for classes that share an inheritance relationship).
 
-Primitive Type Casting: `byte -> short -> char -> int -> long -> float -> double`. Widening (Implicit casting): Smaller to larger size performed by compiler and no data (int -> double). Narrowing (Explicit casting): Larger to smaller size, done by adding datatype and risk of data loss (double -> int).
+Primitive Type Casting: `byte -> short -> char -> int -> long -> float -> double`. Widening (Implicit casting): Smaller to larger size performed by compiler and no data (int -> double). Narrowing (Explicit casting): Larger to smaller size, done by adding datatype in paranthesis and risk of data loss (double -> int).
 
-Reference (Object) Casting: 
-
-**Why Java has char size as 2 bytes:** Unlike languages such as C/C++ that use the _ASCII character set_ (7-bit code), Java uses the _Unicode character set to support internationalization_. Unicode requires more than 8 bits to represent a wide range of characters from different languages, including Latin, Greek, Cyrillic, Chinese, Arabic, etc. As a result, Java uses 2 bytes to store a char, ensuring it can represent any Unicode character.
+Reference (Object) Casting: Allows an object to be an instance of either a parent class (superclass) or a child class (subclass) only if the two classes are connected by inheritance (using `extends` or `implements`). Upcasting (Implicit): Converting a subclass reference to a superclass reference, happens automatically because a child class "is-a" version of the parent. Downcasting (Explicit): Converting a superclass reference back into a subclass reference, done manually. However if the object is not actually an instance of that subclass at runtime, Java throws a `ClassCastException` (always check an object's actual type using the `instanceof` operator before downcasting).
 
 **In Java, a `char` variable can be assigned a value in several ways:** 
 
@@ -43,11 +43,7 @@ long longIntegerNum = 2147483648; // Error: The literal 2147483648 of type int i
 long longIntegerNumL = 2147483648L; // Works fine
 ```
 
-__Memory Allocation/Efficiency for Primitives:__  Local primitive variables are typically stored on the stack memory. If a primitive variable is a field within an object, its value is stored directly within the object's memory on the heap. They are generally more memory-efficient and offer faster access because their values are stored directly.
-
-### **Wrapper classes in Java** 
-
-Wrapper classes are the ones whose objects represent primitive data types, i.e. wrapper classes convert primitive datatypes into objects. They provide the feature of autoboxing and unboxing __Autoboxing:__  automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing. For example – conversion of int to Integer, long to Long, double to Double, etc.
+**Wrapper classes in Java:** Wrapper classes are the ones whose objects represent primitive data types, i.e. wrapper classes convert primitive datatypes into objects. They provide the feature of autoboxing and unboxing __Autoboxing:__  automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing. For example – conversion of int to Integer, long to Long, double to Double, etc.
 2. Unboxing
 It is just the reverse process of autoboxing. Automatically converting an object of a wrapper class to its corresponding primitive type is known as unboxing. For example, conversion of Integer to int, Long to long, Double to double, etc.
 
@@ -58,9 +54,9 @@ The cloning process only works on objects
 Object data allows null values.
 Serialization allows only object data.
 
-### **Non-Primitive (Reference) Data Types**
+**Non-Primitive (Reference) Data Types:**
 
-These data types do not directly store values but instead store references (memory addresses) to objects. It represents the set of properties or methods that are common to all objects of one type. Examples include String, Arrays, and user-defined classes and interfaces.
+These data types do not directly store values but instead store references (memory addresses) to objects. It represents the set of properties or methods that are common to all objects of one type. Examples include String, Arrays, and user-defined classes and interfaces. Objects and their data are stored on the heap memory. References to these objects (i.e. the local variables referencing these objects) are stored in the stack memory. 
 
 - __Classes:__ User-defined blueprints or prototypes from which objects are created.
 - __Object:__ An Object is a basic unit of Object-Oriented Programming and represents real-life entities. An object consists of :
@@ -68,9 +64,8 @@ These data types do not directly store values but instead store references (memo
 - __Arrays:__ Collections of elements of the same data type.
 - __String:__ A sequence of characters (a special class in Java). The difference between a character array and a string in Java is, that the string is designed to hold a sequence of characters in a single variable whereas, a character array is a collection of separate char-type entities.
 
-__Memory Allocation for Non-Primitives:__ Objects (instances of non-primitive types) and their data are stored on the heap memory. Variables of non-primitive types store references (memory locations) to these objects. References to these objects (i.e. the local variables referencing these objects) are stored in the stack memory. 
 
-### **Strings in Java**
+**Strings in Java:**
 
 In Java, a string is an object that represents a sequence of characters, every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Two ways to create a string: using string literal and using new keyword. Strings are immutable means their values cannot be changed once they are created, so updating the string does not modify the original one, it creates a new string object instead.
 
@@ -102,12 +97,6 @@ System.out.println(str.isBlank()); // true
 ```
 
 __Confusing == and .equals() for Strings:__ `==` is used to compare object references, while `.equals()` is used to compare the content of the strings.
-
-### **Java Records vs POJOs**
-
-Records are immutable by default. This means that once a record object is created, its values cannot be changed. This can be useful for representing data that should not change once it is created. POJOs, on the other hand, are mutable by default and require additional effort to make them immutable.
-
-https://www.geeksforgeeks.org/java/what-are-java-records-and-how-to-use-them-alongside-constructors-and-methods/
 
 ## **OOP(Object Oriented Programming) in Java**
 
@@ -334,6 +323,11 @@ https://www.geeksforgeeks.org/java/serialization-and-deserialization-in-java/
 https://www.geeksforgeeks.org/java/clone-method-in-java-2/
 https://www.geeksforgeeks.org/java/reflection-in-java/
 
+### **Java Records vs POJOs**
+
+Records are immutable by default. This means that once a record object is created, its values cannot be changed. This can be useful for representing data that should not change once it is created. POJOs, on the other hand, are mutable by default and require additional effort to make them immutable.
+
+https://www.geeksforgeeks.org/java/what-are-java-records-and-how-to-use-them-alongside-constructors-and-methods/
 
 
 ## **Java Development Environment** 
