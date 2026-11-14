@@ -2,10 +2,6 @@
 
 Java is a high-level, object-oriented programming language used to build web apps, mobile applications, and enterprise software systems. It is platform-independent, which means we can write code once and run it anywhere using the Java Virtual Machine (JVM) (**Write Once, Run Anywhere**). Widely used programming language and platform. A platform is an environment where we can develop and run programs written in any programming language. 
 
-## **Java Development Environment** 
-
-Java Development Environment is required to compile and run Java programs on a system. It involves installing the JDK and configuring environment variables like PATH and JAVA_HOME so the system can access Java tools properly.
-
 ## **Datatypes in Java**
 
 Java is statically typed where variable types are known at compile time, which allows compilers to catch type-related errors early on, potentially preventing runtime crashes and improving code reliability.
@@ -17,11 +13,11 @@ Java is statically typed where variable types are known at compile time, which a
 - Character Type: `char` - single 16-bit Unicode character with the size of 2 bytes (16 bits). Unicode range (0 to 65535).
 - Boolean Type: `boolean` - typically 1 byte (actual size can vary depending on JVM). Stores true or false.
 
-**Overflow and Underflow in Java:** Refers to runtime conditions which occur when an arithmetic operation generates a value that falls outside the permissible boundaries of a primitive data type. Java does not throw exceptions or crash when this happens to primitive numbers since it performs _integer-wraparound_. For Integers, when you exceed the upper limit, the value wraps around to the lowest negative number and vice versa. Floating-point numbers do not wrap around, if value becomes too large (positive or negative), it converts to Infinity or -Infinity and when a number gets too low, it rounds down to 0.0.
+**Overflow and Underflow in Java:** Refers to runtime conditions which occur when result of an arithmetic operation falls outside the permissible boundaries of a primitive data type. Java does not throw exceptions or crash when this happens to primitive numbers since it performs _integer-wraparound_. For Integers, when you exceed the upper limit, the value wraps around to the lowest negative number and vice versa. Floating-point numbers do not wrap around, if value becomes too large (positive or negative), it converts to Infinity or -Infinity and when a number gets too low, it rounds down to 0.0.
 
-**Type casting in Java:** process of converting a value from one data type into another. Primitive Casting (for numeric and character types) and Reference/Object Casting (for classes that share an inheritance relationship).
+**Type casting in Java:** Process of converting a value from one datatype into another. Primitive Casting (for numeric and character types) and Reference/Object Casting (for classes that share an inheritance relationship).
 
-Primitive Type Casting: `byte -> short -> char -> int -> long -> float -> double`. Widening (Implicit casting): Smaller to larger size performed by compiler and no data (int -> double). Narrowing (Explicit casting): Larger to smaller size, done by adding datatype and data loss (double -> int).
+Primitive Type Casting: `byte -> short -> char -> int -> long -> float -> double`. Widening (Implicit casting): Smaller to larger size performed by compiler and no data (int -> double). Narrowing (Explicit casting): Larger to smaller size, done by adding datatype and risk of data loss (double -> int).
 
 Reference (Object) Casting: 
 
@@ -337,3 +333,9 @@ Covariant return types are applicable only to non-primitive return types (classe
 https://www.geeksforgeeks.org/java/serialization-and-deserialization-in-java/
 https://www.geeksforgeeks.org/java/clone-method-in-java-2/
 https://www.geeksforgeeks.org/java/reflection-in-java/
+
+
+
+## **Java Development Environment** 
+
+Java Development Environment is required to compile and run Java programs on a system. It involves installing the JDK and configuring environment variables like PATH and JAVA_HOME so the system can access Java tools properly.
