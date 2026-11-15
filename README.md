@@ -110,14 +110,6 @@ Object-Oriented Programming (OOPs) is a programming approach that organizes code
 
 **`main` method in Java:** `main()` method has `public` and `static` modifiers and acts as the entry point of the application. `public` modifier facilitates access to the method from any part of the application else it will not be accessible to JVM. Creating and managing objects is one of the primary functions of JVM. Declaring it as `static` lets JVM invoke it directly using `ClassName.main()` without needing to instantiate the class first.
 
-**Java method call stack:**
-
-Java is an object-oriented and stack-based programming language where methods play a key role in controlling the program's execution flow. When a method is called, Java uses an internal structure known as the call stack to manage execution, variables, and return addresses. _Call stack_ is a data structure used during runtime to manage method calls and local variables. It operates in a _Last-In-First-Out(LIFO)_ manner, meaning the last method called is the first one to complete and exit. Java automatically manages the call stack using the JVM. When a method is called:
-
-- A new stack frame is added to the call stack to store method details.
-- The method runs its code.
-- After execution, the stack frame is removed, and control goes back to the calling method.
-
 ---
 
 **Classes and Objects:** __Class__ is a user-defined blueprint or prototype from which objects are created. It represents the set of properties or methods that are common to all objects of one type. Components of Java classes:
@@ -333,3 +325,15 @@ https://www.geeksforgeeks.org/java/what-are-java-records-and-how-to-use-them-alo
 ## **Java Development Environment** 
 
 Java Development Environment is required to compile and run Java programs on a system. It involves installing the JDK and configuring environment variables like PATH and JAVA_HOME so the system can access Java tools properly.
+
+
+### Stack Memory and Heap Space in Java
+
+**Java method call stack:**
+
+Java is an object-oriented and stack-based programming language where methods play a key role in controlling the program's execution flow. When a method is called, Java uses an internal structure known as the call stack to manage execution, variables, and return addresses. _Call stack_ is a data structure used during runtime to manage method calls and local variables. It operates in a _Last-In-First-Out(LIFO)_ manner, meaning the last method called is the first one to complete and exit. Java automatically manages the call stack using the JVM. When a method is called:
+
+- A new stack frame is added to the call stack to store method details.
+- The method runs its code.
+- After execution, the stack frame is removed, and control goes back to the calling method.
+
