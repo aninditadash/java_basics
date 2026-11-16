@@ -43,7 +43,7 @@ long longIntegerNum = 2147483648; // Error: The literal 2147483648 of type int i
 long longIntegerNumL = 2147483648L; // Works fine
 ```
 
-**Wrapper classes in Java:** provides an object representation for each of the eight primitive data types. These classes are part of the `java.lang` package and allow primitive values to be used in object-only contexts like Java Collections (e.g. ArrayList, HashMap) and provide feature of autoboxing (primitive to object) - Java compiler automatically converts a primitive type into its corresponding wrapper class object when assigned directly and unboxing (object to primitive) - Java compiler automatically extracts the primitive value from a wrapper object when assigned to a primitive variable. Advantages: Collections and Serialization allow only object data. They include helpful methods like `parseInt()`, `compareTo()`, `equals()`, `toString()`, etc.
+**Wrapper classes in Java:** provides an object representation for each of the eight primitive data types. These classes are part of the `java.lang` package and allow primitive values to be used in object-only contexts like Java Collections/Serialization (which allow only object data) and provide feature of `autoboxing` (primitive to object) - Java compiler automatically converts a primitive type into its corresponding wrapper class object when assigned directly and `unboxing` (object to primitive) - Java compiler automatically extracts the primitive value from a wrapper object when assigned to a primitive variable. These wrapper classes also include helpful methods like `parseInt()`, `compareTo()`, `equals()`, `toString()`, etc.
 
 ---
 
