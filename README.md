@@ -93,11 +93,13 @@ __Confusing == and .equals() for Strings:__ `==` is used to compare object refer
 
 ## **OOP(Object Oriented Programming) in Java**
 
-Object-Oriented Programming (OOPs) is a programming approach that organizes code into classes and objects and makes it more structured and easy to manage. The core idea of OOPs is to bind data and the functions that operate on it, preventing unauthorized access from other parts of the code. A class is a blueprint that defines properties and behaviors, while an object is an instance of a class representing real-world entities. In Java, the `Object` class, found within the `java.lang` package, is the root of the entire class hierarchy (`java.lang.Object`). 
+Object-Oriented Programming (OOPs) is a programming approach that organizes code into classes and objects and makes it more structured and easy to manage. The core idea of OOPs is to bind data and the functions that operate on it, preventing unauthorized access from other parts of the code. A class is a blueprint that defines properties and behaviors of an entity, while an object is an instance of that class representing the real-world entity. In Java, the `Object` class (`java.lang.Object`), is the root of the entire class hierarchy . 
 
-**Instance Variables:** non-static variables and are declared in a class outside of any method, constructor, or block. Created when a class object is created and destroyed when the object is destroyed (same for static variables). Initialization not mandatory and default value is assigned (e.g. String/Wrapper classes - null, float - 0.0f, etc) (same for static variables). Scope of instance variables are throughout the class except the static contexts. Can be initialised through constructors/instance blocks.
+**Instance Variables:** non-static and are declared in a class outside of any method, constructor, or block. Scope is throughout the class except static contexts. Its lifetime lasts as long as the object stays in memory - these variables are created when the object is created and destroyed when the object is destroyed. Default value is assigned when not initialized (e.g. String/Wrapper classes - null, float - 0.0f, etc). Can be initialised through constructors/instance blocks.
 
-**Static Variables:** class variables declared using static keyword and only one copy of static variable is available per class. When accessing a static variable through an object, compiler will show a warning message, but will replace the object name with the class name automatically. Static variables cannot be declared locally inside an instance method. Static blocks can be used to initialize static variables.
+**Static Variables:** class variables declared using static keyword and only one copy of static variable is available for a class. Its lifetime is same as that of the class, its scope is restricted by the access modifier used. When accessing a static variable through an object, compiler will show a warning message, but will replace the object name with the class name automatically. Static variables cannot be declared locally inside an instance method. Static blocks can be used to initialize static variables.
+
+**Scope vs Lifetime:** scope defines where in the code a variable can be accessed, while lifetime defines how long that variable exists in memory during program execution. 
 
 **Method Signature:** 
 
