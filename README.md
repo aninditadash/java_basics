@@ -101,7 +101,13 @@ Object-Oriented Programming (OOPs) is a programming approach that organizes code
 
 **Scope vs Lifetime:** scope defines where in the code a variable can be accessed, while lifetime defines how long that variable exists in memory during program execution. 
 
-**Method Signature:** In Java, a method signature is uniquely defined by the method's name and its parameter list (specifically the number, data types, and exact order of the parameters). Return Type, access modifiers, parameter names and thrown exceptions are not part of the method signature. Java compiler enforces that every method within a class must have a unique method signature - this forms the basis for method overloading - creating multiple methods with the same name but different parameters.
+**Method Signature and Method Overloading:** In Java, a method signature is uniquely defined by the method's name and its parameter list (specifically the number, data types, and exact order of the parameters). Return Type, access modifiers, parameter names and thrown exceptions are not part of the method signature. Java compiler enforces that every method within a class must have a unique method signature - this forms the basis for `Method Overloading` - creating multiple methods with the same name but different parameters.
+
+- Compile-time vs. Runtime: Overloading is 100% static (compile-time) using declared types.
+- Three-Phase Resolution: Strict (widening) → Loose (boxing) → Varargs.
+- Specificity Rule: Subtypes beat supertypes; sibling types cause ambiguity errors.
+- Bytecode Erasure: Generic parameters erase to raw types, causing signature collisions at the JVM level.
+
 
 ```java
 void display(int a)          // Signature: display(int)
@@ -110,7 +116,7 @@ void display(int a, float b) // Signature: display(int, float) -> Valid (differe
 void display(float b, int a) // Signature: display(float, int) -> Valid (different order)
 ```
 
-- Passing null to overloaded methods with unrelated or sibling reference types results in compile-time error. For below example, compiler looks for the most specific `process()` method to be invoked. Since, `Integer` and `String` are both subtypes of `Object` but are not subtypes of each other, then the compiler cannot choose a winner and hence gives error. Now, if we remove the `Integer` method, then `process()` will call the string representation.
+- **The null Literal & Most Specific Type Resolution:** Passing null to overloaded methods with unrelated or sibling reference types results in compile-time error. For below example, compiler looks for the most specific `process()` method to be invoked. Since, `Integer` and `String` are both subtypes of `Object` but are not subtypes of each other, then the compiler cannot choose a winner and hence gives error. Now, if we remove the `Integer` method, then `process()` will call the string representation.
 
 ```java
 public class NullTrap {
@@ -124,7 +130,7 @@ public class NullTrap {
 }
 ```
 
-- Calling an overloaded method with a primitive literal when exact matches do not exist. Below example prints Widening. To preserve backward compatibility, compiler resolves overloaded methods in three strict phases: Phase 1 (Strict Invocation): Widening primitive conversions (int → long), without boxing or unboxing. Phase 2 (Loose Invocation): Autoboxing/unboxing (int → Integer), followed by widening reference conversions (Integer → Number → Object). Phase 3 (Variable Arity): Varargs (int...).
+- **Widening vs. Autoboxing vs. Varargs (The 3-Phase Rule):** Calling an overloaded method with a primitive literal when exact matches do not exist. Below example prints Widening. To preserve backward compatibility, compiler resolves overloaded methods in three strict phases: Phase 1 (Strict Invocation): Widening primitive conversions (int → long), without boxing or unboxing. Phase 2 (Loose Invocation): Autoboxing/unboxing (int → Integer), followed by widening reference conversions (Integer → Number → Object). Phase 3 (Variable Arity): Varargs (int...).
 
 ```java
 public class PrecedenceTrap {
@@ -139,6 +145,28 @@ public class PrecedenceTrap {
 ```
 - However, for above example, compile-time error will come if `static void handle(Long l)` is the sole method available for `handle(5)`: compiler tries all three resolution phases on `handle(Long)` and fails every single one: Phase 1 (Widening only): fails because Long is a reference type, not a primitive. Phase 2 (Boxing + Reference Widening): Boxes 5 (int) into Integer. It then tries to widen Integer to Long, which fails because Integer and Long are sibling classes under Number (not parent-child). Phase 3 (Varargs): Fails because Long is not a varargs parameter.
 
+- **Type Erasure Collisions in Generics:** Overloading methods that differ only by generic type arguments. Result is compile-time error (both methods have same erasure). After type erasure, both methods have the exact same bytecode descriptor. Even though the source code signatures look distinct, the JVM cannot differentiate them at runtime.
+
+```java
+public class ErasureTrap {
+    public void sort(List<String> list) { }
+    public void sort(List<Integer> list) { } // Compile error?
+}
+```
+
+- **Primitive char Widening vs. Byte/Short:** Passing a char literal to overloaded numeric methods. Prints `int`. `char` is an unsigned 16-bit integer (0 to 65,535), whereas `short` is a signed 16-bit integer (-32,768 to 32,767). Because `short` cannot represent all `char` values, `char` does not widen to `short` — it widens directly to `int`. Now, `byte` is misleading here and has no purpose.
+
+```java
+public class CharTrap {
+    static void test(byte b)  { System.out.println("byte"); }
+    static void test(short s) { System.out.println("short"); }
+    static void test(int i)   { System.out.println("int"); }
+
+    public static void main(String[] args) {
+        test('a'); // Output?
+    }
+}
+```
 
 **`main` method in Java:** `main()` method has `public` and `static` modifiers and acts as the entry point of the application. `public` modifier facilitates access to the method from any part of the application else it will not be accessible to JVM. Creating and managing objects is one of the primary functions of JVM. Declaring it as `static` lets JVM invoke it directly using `ClassName.main()` without needing to instantiate the class first.
 
