@@ -103,11 +103,10 @@ Object-Oriented Programming (OOPs) is a programming approach that organizes code
 
 **Method Signature and Method Overloading:** In Java, a method signature is uniquely defined by the method's name and its parameter list (specifically the number, data types, and exact order of the parameters). Return Type, access modifiers, parameter names and thrown exceptions are not part of the method signature. Java compiler enforces that every method within a class must have a unique method signature - this forms the basis for `Method Overloading` - creating multiple methods with the same name but different parameters.
 
-- Compile-time vs. Runtime: Overloading is 100% static (compile-time) using declared types.
-- Three-Phase Resolution: Strict (widening) → Loose (boxing) → Varargs.
-- Specificity Rule: Subtypes beat supertypes; sibling types cause ambiguity errors.
-- Bytecode Erasure: Generic parameters erase to raw types, causing signature collisions at the JVM level.
-
+- **Compile-time vs. Runtime:** Overloading is 100% static (compile-time) using declared types.
+- **Three-Phase Resolution:** Strict (widening) → Loose (boxing) → Varargs.
+- **Specificity Rule:** Subtypes beat supertypes; sibling types cause ambiguity errors.
+- **Bytecode Erasure:** Generic parameters erase to raw types, causing signature collisions at the JVM level.
 
 ```java
 void display(int a)          // Signature: display(int)
@@ -168,16 +167,12 @@ public class CharTrap {
 }
 ```
 
-**`main` method in Java:** `main()` method has `public` and `static` modifiers and acts as the entry point of the application. `public` modifier facilitates access to the method from any part of the application else it will not be accessible to JVM. Creating and managing objects is one of the primary functions of JVM. Declaring it as `static` lets JVM invoke it directly using `ClassName.main()` without needing to instantiate the class first.
+**`main` method in Java:** `main()` has `public` and `static` modifiers and acts as the entry point of the application. `public` modifier facilitates access to this method to the JVM. Creating and managing objects is one of JVM's primary functions. Declaring it as `static` lets JVM invoke it directly using `ClassName.main()` without needing to instantiate the class first.
 
 ---
 
-**Classes and Objects:** __Class__ is a user-defined blueprint or prototype from which objects are created. It represents the set of properties or methods that are common to all objects of one type. Components of Java classes:
-
-- __Access Modifiers:__ used to control the visibility of the variables, classes, and methods within a class or package.
-- __Superclass (if any):__ name of the superclass, using keyword `extends`. _A class can only extend (subclass) one parent._
-- __Interfaces(if any):__ A comma-separated list of interfaces implemented by the class, using keyword `implements`. A class can implement more than one interface.
-- __Fields:__ Fields are variables defined within a class that hold the data or state of an object.
+**Components of Java classes:**  Access Modifiers are used to control the visibility of the variables, classes, and methods within a class or package.
+A class can only extend/inherit another class using `extends` keyword. A class can implement a list of interfaces using  `implements` keyword. A class can implement more than one interface. Fields are variables defined within a class that hold the data or state of an object.
 - __Constructors:__ It is a special method in a class that is automatically called when an object is created. And it's name is same as class name.
 
 Objects are the instances of a class that are created to use the attributes and methods of a class. An object consists of:
