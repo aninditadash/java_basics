@@ -101,7 +101,44 @@ Object-Oriented Programming (OOPs) is a programming approach that organizes code
 
 **Scope vs Lifetime:** scope defines where in the code a variable can be accessed, while lifetime defines how long that variable exists in memory during program execution. 
 
-**Method Signature:** 
+**Method Signature:** In Java, a method signature is uniquely defined by the method's name and its parameter list (specifically the number, data types, and exact order of the parameters). Return Type, access modifiers, parameter names and thrown exceptions are not part of the method signature. Java compiler enforces that every method within a class must have a unique method signature - this forms the basis for method overloading - creating multiple methods with the same name but different parameters.
+
+```java
+void display(int a)          // Signature: display(int)
+void display(String b)       // Signature: display(String) -> Valid (different type)
+void display(int a, float b) // Signature: display(int, float) -> Valid (different count)
+void display(float b, int a) // Signature: display(float, int) -> Valid (different order)
+```
+
+- Passing null to overloaded methods with unrelated or sibling reference types results in compile-time error. For below example, compiler looks for the most specific `process()` method to be invoked. Since, `Integer` and `String` are both subtypes of `Object` but are not subtypes of each other, then the compiler cannot choose a winner and hence gives error. Now, if we remove the `Integer` method, then `process()` will call the string representation.
+
+```java
+public class NullTrap {
+    static void process(Object o) { System.out.println("Object"); }
+    static void process(String s) { System.out.println("String"); }
+    static void process(Integer i) { System.out.println("Integer"); }
+
+    public static void main(String[] args) {
+        process(null); // What happens?
+    }
+}
+```
+
+- Calling an overloaded method with a primitive literal when exact matches do not exist. Below example prints Widening. To preserve backward compatibility, compiler resolves overloaded methods in three strict phases: Phase 1 (Strict Invocation): Widening primitive conversions (int → long), without boxing or unboxing. Phase 2 (Loose Invocation): Autoboxing/unboxing (int → Integer), followed by widening reference conversions (Integer → Number → Object). Phase 3 (Variable Arity): Varargs (int...).
+
+```java
+public class PrecedenceTrap {
+    static void handle(Integer i) { System.out.println("Autoboxing"); }
+    static void handle(long l)    { System.out.println("Widening"); }
+    static void handle(int... v)  { System.out.println("Varargs"); }
+
+    public static void main(String[] args) {
+        handle(5); // Output?
+   }
+}
+```
+- However, for above example, compile-time error will come if `static void handle(Long l)` is the sole method available for `handle(5)`: compiler tries all three resolution phases on `handle(Long)` and fails every single one: Phase 1 (Widening only): fails because Long is a reference type, not a primitive. Phase 2 (Boxing + Reference Widening): Boxes 5 (int) into Integer. It then tries to widen Integer to Long, which fails because Integer and Long are sibling classes under Number (not parent-child). Phase 3 (Varargs): Fails because Long is not a varargs parameter.
+
 
 **`main` method in Java:** `main()` method has `public` and `static` modifiers and acts as the entry point of the application. `public` modifier facilitates access to the method from any part of the application else it will not be accessible to JVM. Creating and managing objects is one of the primary functions of JVM. Declaring it as `static` lets JVM invoke it directly using `ClassName.main()` without needing to instantiate the class first.
 
