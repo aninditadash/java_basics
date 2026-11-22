@@ -101,7 +101,7 @@ Object-Oriented Programming (OOPs) is a programming approach that organizes code
 
 Static variables and static and instance methods are stored in `Method Area`/`Class Area` where as objects are stored in the heap memory. This part of JVM memory is shared across all threads. When a Java program is executed, JVM loads the class into memory and static variables of this class are initialized in the Method area. These variables remain in memory until the program terminates.
 
-**Static Methods:** are commonly used for utility functions that perform a specific operation, also can be used for Factory methods that create instances of a class, or methods that perform a global operation that affect all instances of a class. _How to access instance variables/methods from a static method:_ create an instance of the class and call the method/access the variable through the instance.
+**Static/Non-static Methods:** are commonly used for utility functions that perform a specific operation, also can be used for Factory methods that create instances of a class, or methods that perform a global operation that affect all instances of a class. _How to access instance variables/methods from a static method:_ create an instance of the class and call the method/access the variable through the instance. Instance methods can however access the static variables/methods directly without any issues.
 
 **Scope vs Lifetime:** scope defines where in the code a variable can be accessed, while lifetime defines how long that variable exists in memory during program execution. 
 
