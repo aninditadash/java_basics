@@ -47,49 +47,23 @@ long longIntegerNumL = 2147483648L; // Works fine
 
 ---
 
-**Non-Primitive (Reference) Data Types:**
+**Non-Primitive (Reference) Data Types:** These data types do not directly store values but instead store references (memory addresses) to objects. Objects are stored on the heap memory and references to these objects (local variables referencing these objects) are stored in stack memory. 
 
-These data types do not directly store values but instead store references (memory addresses) to objects. It represents the set of properties or methods that are common to all objects of one type. Examples include String, Arrays, and user-defined classes and interfaces. Objects and their data are stored on the heap memory. References to these objects (i.e. the local variables referencing these objects) are stored in the stack memory. 
+**`null` in Java:** `null` is a reserved keyword that denotes a variable or attribute that has a type but doesn't reference any object. Essentially, `null` signifies the absence of an instance/object associated with that variable or field.
 
-- __Classes:__ User-defined blueprints or prototypes from which objects are created.
-- __Object:__ An Object is a basic unit of Object-Oriented Programming and represents real-life entities. An object consists of :
-- __Interfaces:__ Like a class, an interface can have methods and variables, but the methods declared in an interface are by default abstract (only method signature, no body).
-- __Arrays:__ Collections of elements of the same data type.
-- __String:__ A sequence of characters (a special class in Java). The difference between a character array and a string in Java is, that the string is designed to hold a sequence of characters in a single variable whereas, a character array is a collection of separate char-type entities.
-
-
-**Strings in Java:**
-
-In Java, a string is an object that represents a sequence of characters, every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Two ways to create a string: using string literal and using new keyword. Strings are immutable means their values cannot be changed once they are created, so updating the string does not modify the original one, it creates a new string object instead.
+**Strings in Java:** String is an object that represents a sequence of characters, every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Two ways to create a string: using string literal and using new keyword. Strings are immutable meaning their values cannot be changed once they are created, so updating the string does not modify the original one, it creates a new string object instead.
 
 ```java
 String str1 = "Hello";
 String str2 = new String("Hello");
 ```
-Java checks the String Constant Pool (a special memory region inside the heap). If the string "Hello" already exists, str1 reuses the existing instance. If it does not exist, Java creates a new one in the pool. Using new keyword forces Java to bypass the pool check and always create a brand-new object in the normal heap memory, even if "Hello" already exists in the pool.
+Java checks the String Constant Pool (a special memory region inside the heap). If the string "Hello" already exists, str1 reuses the existing instance. If it does not exist, Java creates a new one in the pool. Using new keyword forces Java to bypass the pool check and always create a brand-new object in the normal heap memory, even if "Hello" already exists in the pool. So, here _string interning_ allows JVM to reuse existing string objects.
 
 Strings are frequently used to store sensitive data like passwords, usernames, and file paths, so immutability ensures that once these values are set, they cannot be accidentally or maliciously altered by other parts of the program, enhancing security.
 
 In a multi-threaded environment, mutable objects can lead to race conditions and data corruption if multiple threads try to modify them concurrently without proper synchronization. Since String objects are immutable, they are inherently thread-safe and can be shared across threads without requiring explicit synchronization mechanisms. When a thread tries to "update" the value of a string, the thread does not actually modify the original object; instead, it creates an entirely new String object in memory, and other threads looking at it will see no change at all. Mutable Alternatives are StringBuilder and StringBuffer. StringBuilder used for single-threaded tasks because it is faster and not synchronized. StringBuffer is safe for multi-threaded applications because its methods are synchronized.
 
-#### **String Methods**
-
-Three basic categories of String methods: 
-
-- String inspection methods: length, charAt, indexOf, lastIndexOf, isEmpty, isBlank (JDK 11)
-- Methods for comparing string values: contains, startsWith, endsWith, regionMatches
-- string manipulation methods: 
-
-__`isEmpty()` vs `isBlank():`__ `isEmpty()` checks if a string contains no characters at all. It returns true only if the string's length is zero. But if the string contains whitespace characters (spaces, tabs, newlines, etc.), it will return false. `isBlank()` method provides a more comprehensive check for "blankness." It returns true if the string is either empty (has a length of zero) or consists of only whitespace characters.
-
-```java
-String str = "\n \t";
-		
-System.out.println(str.isEmpty()); // false
-System.out.println(str.isBlank()); // true
-```
-
-__Confusing == and .equals() for Strings:__ `==` is used to compare object references, while `.equals()` is used to compare the content of the strings.
+`==` is used to compare object references, while `.equals()` is used to compare the content of the strings. `isEmpty()` checks if a string contains no characters at all. It returns true only if the string's length is zero. But if the string contains whitespace characters (spaces, tabs, newlines, etc.), it will return false. `isBlank()` method provides a more comprehensive check for "blankness." It returns true if the string is either empty (has a length of zero) or consists of only whitespace characters.
 
 ## **OOP(Object Oriented Programming) in Java**
 
@@ -222,7 +196,7 @@ In addition to access modifiers, methods have other modifiers.
 
 ## **Encapsulation**
 
-It is defined as the wrapping up of data under a single unit. It is the mechanism of bundling data (variables) and the methods that operate on that data within a single unit (a class). It restricts direct access to an object's internal state, allowing interaction only through defined public methods (getters and setters).
+Defined as the wrapping up of data and functionality under a single unit. It is the mechanism of bundling attributes (fields) and behaviour (methods) together within a single object (Class). It involves the practice of hiding certain fields and methods from public access using access modifiers like `private`, `protected`, etc. It also restricts direct access to an object's internal state, allowing interaction only through defined `public` methods (getters and setters).
 
 - __Data Hiding:__ The internal data of an object is hidden from the outside world, preventing direct access.
 - __Data Integrity:__ Only validated or safe values can be assigned to an object’s attributes via setter methods.
@@ -371,11 +345,19 @@ Java Development Environment is required to compile and run Java programs on a s
 JVM is an implementation of a virtual machine which executes a Java program. JVM first interprets the bytecode. It then stores the class information in the memory area. Finally, it executes the bytecode generated by the java compiler. Components of the JVM are: Class Loaders, Run-Time Data Areas
 and Execution Engine.
 
-**JVM Run-Time Data Areas:** JVM defines various memory areas to execute a Java program. These are used during runtime and are known as run-time data areas. Some of these areas are created on the JVM start-up and destroyed when the JVM exits while some are created when a thread is created and destroyed when a thread exits. So, JVM is responsible for allocating and deallocating memory for Java programs.
+#### **JVM Run-Time Data Areas:**
 
-- _Heap Area:_ Area of memory where objects are allocated. Each object is allocated on the heap and its memory is reclaimed by GC when it is no longer being used. JVM creates heap area as soon as it starts up. All JVM threads share this area. Memory for heap area does not need to be contiguous.
-- _Stack Area:_ Area of memory where local variables and method calls are stored. When a method is called, a new stack frame is created on the stack, which contains the method's local variables and parameters. When the method returns, the stack frame is removed from the stack. JVM creates the stack area whenever it creates a new thread, so this area is private for each thread. Memory for JVM stack does not need to be contiguous.
-- _Method Area:_ Basically, method area is analogous to the storage area for compiled code. It stores structures such as run-time constant pool, field and method data, the code for methods and constructors as well as class definitions. JVM stores these structure for each and every class. This area is also known as permanent generation space (PermGen), is created when the JVM starts up. The memory for this area does not need to be contiguous. All the JVM threads share this memory area.
+JVM defines various memory areas to execute a Java program. These are used during runtime and are known as run-time data areas. Some of these areas are created on the JVM start-up and destroyed when the JVM exits while some are created when a thread is created and destroyed when a thread exits. So, JVM is responsible for allocating and deallocating memory for Java programs.
+
+__Heap Area:__ Area of memory where objects are allocated. Each object is allocated on the heap and its memory is reclaimed by GC when it is no longer being used. JVM creates heap area as soon as it starts up. All JVM threads share this area. Memory for heap area does not need to be contiguous.
+
+__Stack Area:__ Area of memory where local variables and method calls are stored. When a method is called, a new stack frame is created on the stack, which contains the method's local variables and parameters. When the method returns, the stack frame is removed from the stack. JVM creates the stack area whenever it creates a new thread, so this area is private for each thread. Memory for JVM stack does not need to be contiguous.
+
+__Method Area:__ Basically, method area is analogous to the storage area for compiled code. It stores structures such as run-time constant pool, field and method data, the code for methods and constructors as well as class definitions. JVM stores these structure for each and every class. This area is also known as permanent generation space (PermGen), is created when the JVM starts up. The memory for this area does not need to be contiguous. All the JVM threads share this memory area.
+
+__PC Registers:__ Each JVM thread has a separate PC Register which stores the address of the currently executing instruction. If the currently executing instruction is a part of the native method then this value is undefined.
+
+__Native method stacks:__ Native methods are those which are written in languages other than Java. Native method stacks are also known as "C stacks". They store the native method information. Whenever the native methods are compiled into machine codes, they usually use a native method stack to keep track of their state. JVM creates these stacks whenever it creates a new thread. And thus JVM threads don’t share this area.
 
 
 ### Stack Memory and Heap Space in Java
