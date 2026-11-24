@@ -63,7 +63,8 @@ Strings are frequently used to store sensitive data like passwords, usernames, a
 
 In a multi-threaded environment, mutable objects can lead to race conditions and data corruption if multiple threads try to modify them concurrently without proper synchronization. Since String objects are immutable, they are inherently thread-safe and can be shared across threads without requiring explicit synchronization mechanisms. When a thread tries to "update" the value of a string, the thread does not actually modify the original object; instead, it creates an entirely new String object in memory, and other threads looking at it will see no change at all. Mutable Alternatives are StringBuilder and StringBuffer. StringBuilder used for single-threaded tasks because it is faster and not synchronized. StringBuffer is safe for multi-threaded applications because its methods are synchronized.
 
-`==` is used to compare object references, while `.equals()` is used to compare the content of the strings. `isEmpty()` checks if a string contains no characters at all. It returns true only if the string's length is zero. But if the string contains whitespace characters (spaces, tabs, newlines, etc.), it will return false. `isBlank()` method provides a more comprehensive check for "blankness." It returns true if the string is either empty (has a length of zero) or consists of only whitespace characters.
+- `==` is used to compare object references, while `.equals()` is used to compare the content of the strings.
+- `isEmpty()` checks if a string contains no characters at all. It returns true only if the string's length is zero. But if the string contains whitespace characters (spaces, tabs, newlines, etc.), it will return false. `isBlank()` method provides a more comprehensive check for "blankness." It returns true if the string is either empty (has a length of zero) or consists of only whitespace characters.
 
 ## **OOP(Object Oriented Programming) in Java**
 
