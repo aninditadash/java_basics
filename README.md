@@ -51,23 +51,20 @@ long longIntegerNumL = 2147483648L; // Works fine
 
 **`null` in Java:** `null` is a reserved keyword that denotes a variable or attribute that has a type but doesn't reference any object. Essentially, `null` signifies the absence of an instance/object associated with that variable or field.
 
-**Strings in Java:** String is an object that represents a sequence of characters, every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Two ways to create a string: using string literal and using new keyword (Strings Allocated Using the Constructor). Strings are immutable meaning their values cannot be changed once they are created, so updating the string does not modify the original one, it creates a new string object instead.
+**Strings in Java:** String is an object that represents a sequence of characters. Two ways to create a string: using string literal and using new keyword (created using constructor). Strings are immutable meaning their values cannot be changed once they are created, so updating the string does not modify the original one, it creates a new string object instead. Java String Pool — the special memory region where Strings are stored by the JVM.
 
+Due to the immutability of Strings, JVM can optimize the amount of memory allocated for them by storing only one copy of each literal String in the pool - process called _interning_. When we create a String variable literal and assign a value to it, the JVM searches the pool for a String of equal value. If found, Java compiler will return a reference to its memory address, without allocating additional memory. If not found, it'll be added to the pool (interned) and its reference will be returned. However, if we create String via constructor, Java compiler will create new object and store it in the heap space reserved for the JVM. We can manually intern a String in the Java String Pool by calling the `intern()` method on the object we want to intern.
 
+- `==` is used to compare object references, while `.equals()` is used to compare the content of the strings.
+- `isEmpty()` checks if a string contains no characters at all. It returns true only if the string's length is zero. But if the string contains whitespace characters (spaces, tabs, newlines, etc.), it will return false. `isBlank()` method provides a more comprehensive check for "blankness." It returns true if the string is either empty (has a length of zero) or consists of only whitespace characters.
 
+**Garbage Collection for strings:** Before Java 7, JVM placed Java String Pool in PermGen space, which has fixed size and it can't be expanded at runtime and is not eligible for garbage collection. Risk of interning Strings in the PermGen (instead of the Heap) is that we can get an _OutOfMemory_ error from the JVM if we intern too many Strings. From Java 7 onwards, Java String Pool is stored in the Heap space, which is garbage collected by JVM resulting in reduced risk of _OutOfMemory_ error because unreferenced Strings will be removed from the pool, thereby releasing memory. 
 
-```java
-String str1 = "Hello";
-String str2 = new String("Hello");
-```
-Java checks the String Constant Pool (a special memory region inside the heap). If the string "Hello" already exists, str1 reuses the existing instance. If it does not exist, Java creates a new one in the pool. Using new keyword forces Java to bypass the pool check and always create a brand-new object in the normal heap memory, even if "Hello" already exists in the pool. So, here _string interning_ allows JVM to reuse existing string objects.
+**Java 9 Strings:** Until Java 8, Strings were internally represented as an array of characters – `char[]`, encoded in UTF-16, so that every character uses two bytes of memory. With Java 9 a new representation is provided, called _Compact Strings_. This new format will choose the appropriate encoding between `char[]` and `byte[]` depending on the stored content. Since the new String representation will use the UTF-16 encoding only when necessary, amount of heap memory will be significantly lower, which in turn causes less Garbage Collector overhead on the JVM.
 
 Strings are frequently used to store sensitive data like passwords, usernames, and file paths, so immutability ensures that once these values are set, they cannot be accidentally or maliciously altered by other parts of the program, enhancing security.
 
 In a multi-threaded environment, mutable objects can lead to race conditions and data corruption if multiple threads try to modify them concurrently without proper synchronization. Since String objects are immutable, they are inherently thread-safe and can be shared across threads without requiring explicit synchronization mechanisms. When a thread tries to "update" the value of a string, the thread does not actually modify the original object; instead, it creates an entirely new String object in memory, and other threads looking at it will see no change at all. Mutable Alternatives are StringBuilder and StringBuffer. StringBuilder used for single-threaded tasks because it is faster and not synchronized. StringBuffer is safe for multi-threaded applications because its methods are synchronized.
-
-- `==` is used to compare object references, while `.equals()` is used to compare the content of the strings.
-- `isEmpty()` checks if a string contains no characters at all. It returns true only if the string's length is zero. But if the string contains whitespace characters (spaces, tabs, newlines, etc.), it will return false. `isBlank()` method provides a more comprehensive check for "blankness." It returns true if the string is either empty (has a length of zero) or consists of only whitespace characters.
 
 ## **OOP(Object Oriented Programming) in Java**
 
@@ -363,8 +360,9 @@ __PC Registers:__ Each JVM thread has a separate PC Register which stores the ad
 
 __Native method stacks:__ Native methods are those which are written in languages other than Java. Native method stacks are also known as "C stacks". They store the native method information. Whenever the native methods are compiled into machine codes, they usually use a native method stack to keep track of their state. JVM creates these stacks whenever it creates a new thread. And thus JVM threads don’t share this area.
 
-**Permgen vs Metaspace in Java:** Starting with Java 8, Metaspace replaces PermGen (Permanent Generation). PermGen is a special heap space separated from the main memory heap. JVM keeps track of loaded class metadata in the PermGen. Additionally, JVM stores all the static content in this memory section. This includes all the static methods, primitive variables, and references to the static objects. Furthermore, it contains data about bytecode, names, and JIT information. Before Java 7, the String Pool was also part of this memory. 
+**PermGen vs Metaspace in Java:** Starting with Java 8, Metaspace replaces PermGen (Permanent Generation). PermGen is a special heap space separated from the main memory heap. JVM keeps track of loaded class metadata in the PermGen. Additionally, JVM stores all the static content in this memory section. This includes all the static methods, primitive variables, and references to the static objects. Also contains data about bytecode, names, and JIT information. Before Java 7, String Pool was also part of this memory. However, Oracle completely removed PermGen in the JDK 8 release. 
 
+Metaspace is a new memory space – starting from Java 8 version - has replaced PermGen, significant difference is how it handles memory allocation. Specifically, this native memory region grows automatically by default. New flags to tune the memory: _MetaspaceSize_ and _MaxMetaspaceSize_ are Metaspace upper bounds.  GC now automatically triggers the cleaning of the dead classes once the class metadata usage reaches its maximum metaspace size, helps JVM to reduce `OutOfMemory` error. However, we still need to monitor and tune the metaspace to avoid memory leaks.
 
 ### Stack Memory and Heap Space in Java
 
