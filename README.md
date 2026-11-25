@@ -51,7 +51,10 @@ long longIntegerNumL = 2147483648L; // Works fine
 
 **`null` in Java:** `null` is a reserved keyword that denotes a variable or attribute that has a type but doesn't reference any object. Essentially, `null` signifies the absence of an instance/object associated with that variable or field.
 
-**Strings in Java:** String is an object that represents a sequence of characters, every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Two ways to create a string: using string literal and using new keyword. Strings are immutable meaning their values cannot be changed once they are created, so updating the string does not modify the original one, it creates a new string object instead.
+**Strings in Java:** String is an object that represents a sequence of characters, every character is stored in 16 bits, i.e., using UTF 16-bit encoding. Two ways to create a string: using string literal and using new keyword (Strings Allocated Using the Constructor). Strings are immutable meaning their values cannot be changed once they are created, so updating the string does not modify the original one, it creates a new string object instead.
+
+
+
 
 ```java
 String str1 = "Hello";
@@ -359,6 +362,8 @@ __Method Area:__ Basically, method area is analogous to the storage area for com
 __PC Registers:__ Each JVM thread has a separate PC Register which stores the address of the currently executing instruction. If the currently executing instruction is a part of the native method then this value is undefined.
 
 __Native method stacks:__ Native methods are those which are written in languages other than Java. Native method stacks are also known as "C stacks". They store the native method information. Whenever the native methods are compiled into machine codes, they usually use a native method stack to keep track of their state. JVM creates these stacks whenever it creates a new thread. And thus JVM threads don’t share this area.
+
+**Permgen vs Metaspace in Java:** Starting with Java 8, Metaspace replaces PermGen (Permanent Generation). PermGen is a special heap space separated from the main memory heap. JVM keeps track of loaded class metadata in the PermGen. Additionally, JVM stores all the static content in this memory section. This includes all the static methods, primitive variables, and references to the static objects. Furthermore, it contains data about bytecode, names, and JIT information. Before Java 7, the String Pool was also part of this memory. 
 
 
 ### Stack Memory and Heap Space in Java
