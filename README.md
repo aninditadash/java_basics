@@ -360,17 +360,12 @@ __PC Registers:__ Each JVM thread has a separate PC Register which stores the ad
 
 __Native method stacks:__ Native methods are those which are written in languages other than Java. Native method stacks are also known as "C stacks". They store the native method information. Whenever the native methods are compiled into machine codes, they usually use a native method stack to keep track of their state. JVM creates these stacks whenever it creates a new thread. And thus JVM threads don’t share this area.
 
+**Stack Memory vs Heap Space:** Stack Memory is used for static memory allocation and the execution of a thread, contains primitive values that are specific to a method and references to objects referred from the method that are in a heap. Access to this memory is in Last-In-First-Out (LIFO) order. Whenever we call a new method, a new block is created on top of the stack which contains values specific to that method, like primitive variables and references to objects. When the method finishes execution, its corresponding stack frame is flushed, the flow goes back to the calling method, and space becomes available for the next method.
+
+
+
 **PermGen vs Metaspace in Java:** Starting with Java 8, Metaspace replaces PermGen (Permanent Generation). PermGen is a special heap space separated from the main memory heap. JVM keeps track of loaded class metadata in the PermGen. Additionally, JVM stores all the static content in this memory section. This includes all the static methods, primitive variables, and references to the static objects. Also contains data about bytecode, names, and JIT information. Before Java 7, String Pool was also part of this memory. However, Oracle completely removed PermGen in the JDK 8 release. 
 
 Metaspace is a new memory space – starting from Java 8 version - has replaced PermGen, significant difference is how it handles memory allocation. Specifically, this native memory region grows automatically by default. New flags to tune the memory: _MetaspaceSize_ and _MaxMetaspaceSize_ are Metaspace upper bounds.  GC now automatically triggers the cleaning of the dead classes once the class metadata usage reaches its maximum metaspace size, helps JVM to reduce `OutOfMemory` error. However, we still need to monitor and tune the metaspace to avoid memory leaks.
 
-### Stack Memory and Heap Space in Java
-
-**Java method call stack:**
-
-Java is an object-oriented and stack-based programming language where methods play a key role in controlling the program's execution flow. When a method is called, Java uses an internal structure known as the call stack to manage execution, variables, and return addresses. _Call stack_ is a data structure used during runtime to manage method calls and local variables. It operates in a _Last-In-First-Out(LIFO)_ manner, meaning the last method called is the first one to complete and exit. Java automatically manages the call stack using the JVM. When a method is called:
-
-- A new stack frame is added to the call stack to store method details.
-- The method runs its code.
-- After execution, the stack frame is removed, and control goes back to the calling method.
 
