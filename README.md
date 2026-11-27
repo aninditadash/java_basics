@@ -61,6 +61,11 @@ Due to the immutability of Strings, JVM can optimize the amount of memory alloca
 
 **Garbage Collection for strings:** Before Java 7, JVM placed Java String Pool in PermGen space, which has fixed size and it can't be expanded at runtime and is not eligible for garbage collection. Risk of interning Strings in the PermGen (instead of the Heap) is that we can get an _OutOfMemory_ error from the JVM if we intern too many Strings. From Java 7 onwards, Java String Pool is stored in the Heap space, which is garbage collected by JVM resulting in reduced risk of _OutOfMemory_ error because unreferenced Strings will be removed from the pool, thereby releasing memory. 
 
+**Java 8 Changes (Strings):**
+Java 8u20 has introduced one more JVM parameter for reducing the unnecessary use of memory by creating too many instances of the same String. This optimizes the heap memory by removing duplicate String values to a global single char[] array.
+
+We can enable this parameter by adding -XX:+UseStringDeduplication as a JVM parameter.
+
 **Java 9 Strings:** Until Java 8, Strings were internally represented as an array of characters – `char[]`, encoded in UTF-16, so that every character uses two bytes of memory. With Java 9 a new representation is provided, called _Compact Strings_. This new format will choose the appropriate encoding between `char[]` and `byte[]` depending on the stored content. Since the new String representation will use the UTF-16 encoding only when necessary, amount of heap memory will be significantly lower, which in turn causes less Garbage Collector overhead on the JVM.
 
 Strings are frequently used to store sensitive data like passwords, usernames, and file paths, so immutability ensures that once these values are set, they cannot be accidentally or maliciously altered by other parts of the program, enhancing security.
@@ -340,7 +345,7 @@ https://www.geeksforgeeks.org/java/what-are-java-records-and-how-to-use-them-alo
 
 ## **Java Development Environment** 
 
-Java Development Environment is required to compile and run Java programs on a system. It involves installing the JDK and configuring environment variables like PATH and JAVA_HOME so the system can access Java tools properly.
+Java Development Environment is required to compile and run Java programs on a system. It involves installing the JDK and configuring environment variables like PATH and JAVA_HOME so the system can access Java tools properly. Important JVM topics - https://www.baeldung.com/jvm-series.
 
 **Java Development Kit (JDK):** JDK provides environment and tools for developing, compiling, debugging, and executing a Java program. Core components of JDK include: JRE, Development Tools/Utilities - javac, java, javadoc, jar, etc.
 
@@ -412,10 +417,15 @@ Metaspace is a new memory space – starting from Java 8 version - has replaced 
 ### **JVM Garbage Collectors**
 
 Garbage Collection tracks each and every object available in the JVM heap space, and removes the unused ones. Basically, GC works in two simple steps, known as **Mark and Sweep:** _Mark_ – this is where the garbage collector identifies which pieces of memory are in use and which aren’t.
-_Sweep_ – this step removes objects identified during the "mark" phase. **Advantages:** No manual memory allocation/deallocation handling because unused memory space is automatically handled by GC. No overhead of handling Dangling Pointer. Automatic Memory Leak management. **Disadvantages:** Since JVM has to keep track of object reference creation/deletion, this activity requires more CPU power than the original application. It may affect the performance of requests which require large memory. We have no control over the scheduling of CPU time dedicated to freeing objects that are no longer needed. Automatized memory management won't be as efficient as the proper manual memory allocation/deallocation.
+_Sweep_ – this step removes objects identified during the "mark" phase. **Advantages:** No manual memory allocation/deallocation handling because unused memory space is automatically handled by GC. No overhead of handling Dangling Pointer. Automatic Memory Leak management. **Disadvantages:** Since JVM has to keep track of object reference creation/deletion, this activity requires more CPU power than the original application. It may affect the performance of requests which require large memory. We have no control over the scheduling of CPU time dedicated to freeing objects that are no longer needed. Automatized memory management won't be as efficient as the proper manual memory allocation/deallocation. JVM has four types of GC implementations (commands provided to enable the specific GC implementation):
 
-#### **GC Implementations**
+- __Serial Garbage Collector:__ simplest GC implementation, works with a single thread. As a result, this GC implementation freezes all application threads when it runs. Not a good idea to use in multi-threaded applications, like server environments. `java -XX:+UseSerialGC -jar Application.java`
+- __Parallel Garbage Collector:__ default GC of JVM from Java 5 until Java 8. It uses multiple threads for managing heap space, but it also freezes other application threads while performing GC. `java -XX:+UseParallelGC -jar Application.java`
+- __G1 Garbage Collector:__ G1 (Garbage First) GC is designed for applications running on multi-processor machines with large memory space (Java 9). G1 collector partitions the heap into a set of equal-sized heap regions, each a contiguous range of virtual memory. During Marking phase, G1 determines the liveness of objects throughout the heap. After the mark phase is complete, G1 knows which regions are mostly empty. During Sweeping phase, it collects in these areas first, which usually yields a significant amount of free space, hence called Garbage-First. `java -XX:+UseG1GC -jar Application.java` (Default GC).
+- __Z Garbage Collector:__ ZGC (Z Garbage Collector) is a scalable low-latency garbage collector (experimental since Java 11 and in production from Java 15). Performs all expensive work concurrently, without stopping execution of application threads for more than 10 ms (suitable for low latency applications). It uses load barriers with colored pointers (Reference coloring) to perform concurrent operations when the threads are running, and they’re used to keep track of heap usage. Similar to G1, Z Garbage Collector partitions the heap, except that heap regions can have different sizes. `java -XX:+UseZGC Application.java`.
 
-JVM has four types of GC implementations:
+**Important JVM Parameters:** 
 
-__Serial Garbage Collector:__ 
+**Generational ZGC in Java:** 
+
+
