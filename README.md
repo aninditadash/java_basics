@@ -388,6 +388,8 @@ __Just-In-Time (JIT) Compiler:__ JIT compiler compiles the bytecode of the often
 
 __Garbage Collector:__ Java takes care of memory management using Garbage Collection. It's a process of looking at heap memory, identifying which objects are in use and which are not, and finally deleting unused objects. GC is a daemon thread. It can be called explicitly using `System.gc()` method, however, it won't be executed immediately and the JVM decides when to invoke GC.
 
+---
+
 #### **Stack Memory vs Heap Space:**
 
 Stack Memory is used for static memory allocation and the execution of a thread, contains primitive values that are specific to a method and references to objects referred from the method that are in a heap. Access to this memory is in Last-In-First-Out (LIFO) order. Whenever we call a new method, a new block is created on top of the stack which contains values specific to that method, like primitive variables and references to objects. When the method finishes execution, its corresponding stack frame is flushed, the flow goes back to the calling method, and space becomes available for the next method. _Features:_ It grows and shrinks as new methods are called and returned, respectively. If this memory is full, Java throws `java.lang.StackOverFlowError`. Access to this memory is fast when compared to heap memory. This memory is threadsafe, as each thread operates in its own stack.
@@ -414,6 +416,8 @@ This is why the design works. Most objects die young, so the frequent, cheap min
 
 Metaspace is a new memory space – starting from Java 8 version - has replaced PermGen, significant difference is how it handles memory allocation. Specifically, this native memory region grows automatically by default. New flags to tune the memory: _MetaspaceSize_ and _MaxMetaspaceSize_ are Metaspace upper bounds.  GC now automatically triggers the cleaning of the dead classes once the class metadata usage reaches its maximum metaspace size, helps JVM to reduce `OutOfMemory` error. However, we still need to monitor and tune the metaspace to avoid memory leaks.
 
+---
+
 ### **JVM Garbage Collectors**
 
 Garbage Collection tracks each and every object available in the JVM heap space, and removes the unused ones. Basically, GC works in two simple steps, known as **Mark and Sweep:** _Mark_ – this is where the garbage collector identifies which pieces of memory are in use and which aren’t.
@@ -424,8 +428,15 @@ _Sweep_ – this step removes objects identified during the "mark" phase. **Adva
 - __G1 Garbage Collector:__ G1 (Garbage First) GC is designed for applications running on multi-processor machines with large memory space (Java 9). G1 collector partitions the heap into a set of equal-sized heap regions, each a contiguous range of virtual memory. During Marking phase, G1 determines the liveness of objects throughout the heap. After the mark phase is complete, G1 knows which regions are mostly empty. During Sweeping phase, it collects in these areas first, which usually yields a significant amount of free space, hence called Garbage-First. `java -XX:+UseG1GC -jar Application.java` (Default GC).
 - __Z Garbage Collector:__ ZGC (Z Garbage Collector) is a scalable low-latency garbage collector (experimental since Java 11 and in production from Java 15). Performs all expensive work concurrently, without stopping execution of application threads for more than 10 ms (suitable for low latency applications). It uses load barriers with colored pointers (Reference coloring) to perform concurrent operations when the threads are running, and they’re used to keep track of heap usage. Similar to G1, Z Garbage Collector partitions the heap, except that heap regions can have different sizes. `java -XX:+UseZGC Application.java`.
 
+**Generational ZGC in Java:** Java 21 introduced Generational ZGC which focuses on optimizing memory management by introducing separate generations for young and old objects. Garbage collection is the process by which programs try to free up allocated memory that is no longer used by objects. An object is considered 'in-use' or 'referenced' if some part of the program still maintains a pointer to it. Conversely, an 'unused' or 'unreferenced' object is no longer accessed by any part of the program, allowing the memory it occupies to be reclaimed.
+
+_Generational Garbage Collection:_ In the context of memory management, a generation refers to a categorization of objects based on the time of their allocation. In Java, memory is partitioned into two main generations: young and old. Newly created objects find their place in the young generation, where frequent garbage collection takes place. Objects that persist beyond multiple garbage collection cycles are promoted to the older generation. This division optimizes efficiency by acknowledging the short lifespan of most of the objects.
+
+_Generational Z Garbage Collector:_ ZGC is a scalable, low-latency garbage collector which became production-ready in Java 15. As a non-generational approach, it stores all objects together, regardless of age, so each cycle collects all objects (_In a non-generational collector, the heap is one pool. Newly created and long-lived objects sit together, so each garbage collection cycle has to scan and process all live objects, even though most young objects are already dead by then. The collector can't focus on the area where garbage is most likely to be found_).
+
+Generational ZGC aims to improve application performance, extending the existing ZGC by maintaining separate generations for young and old objects. _Motivation:_ Weak generational hypothesis states that most objects die young hence, collecting and reclaiming memory from these short-lived young resources requires fewer computational resources and unlocks more memory quickly. On the other hand, collecting older objects, which have survived multiple cycles and have a more extended lifespan, demands more computational resources. However, the amount of memory unlocked by collecting older objects is comparatively less. This generational strategy proves more efficient in quickly freeing up memory, contributing to enhanced overall application performance (Details - https://www.baeldung.com/java-21-generational-z-garbage-collector). `java -XX:+UseZGC -XX:+ZGenerational Application.java`
+
+---
+
 **Important JVM Parameters:** 
-
-**Generational ZGC in Java:** 
-
 
